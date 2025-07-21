@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 } elseif ($role_id == 3) {
                     header('Location: ' . BASE_URL . 'stylist/dashboard.php');
                 } else {
-                    header('Location: ' . BASE_URL . 'index.php');
+                    header('Location: ' . BASE_URL . 'login.php');
                 }
                 exit;
             } else {
