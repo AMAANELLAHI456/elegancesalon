@@ -1,221 +1,1090 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Welcome | Elegance Salon</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Elegance Salon - Premium beauty services with luxury experience">
+  <title>Elegance Salon | Luxury Beauty Services</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
   <style>
     :root {
-      --gold: #D4AF37;
-      --black: #121212;
+      --gold: #FFD700;
+      --dark-gold: #D4AF37;
+      --black: #0a0a0a;
       --dark-gray: #1a1a1a;
-      --text-light: #f2f2f2;
+      --light-gray: #e0e0e0;
     }
 
     body {
-      background: var(--black);
-      color: var(--text-light);
-      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      font-family: 'Montserrat', 'Segoe UI', sans-serif;
+      background-color: var(--black);
+      color: #fff;
+      scroll-behavior: smooth;
     }
 
     .navbar {
-      background-color: var(--dark-gray);
-      border-bottom: 1px solid var(--gold);
+      background: rgba(10, 10, 10, 0.9);
+      border-bottom: 2px solid var(--gold);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+    }
+
+    .navbar.scrolled {
+      background: rgba(10, 10, 10, 0.95);
+      padding-top: 5px;
+      padding-bottom: 5px;
     }
 
     .navbar-brand {
+      font-weight: 700;
       color: var(--gold);
-      font-weight: bold;
+      font-size: 1.8rem;
       letter-spacing: 1px;
     }
 
+    .navbar-brand img {
+      height: 40px;
+      margin-right: 10px;
+    }
+
     .nav-link {
-      color: var(--text-light);
+      color: #eee;
+      font-weight: 500;
+      margin: 0 10px;
+      position: relative;
+    }
+
+    .nav-link:before {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: var(--gold);
+      visibility: hidden;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .nav-link:hover:before,
+    .nav-link.active:before {
+      visibility: visible;
+      width: 100%;
     }
 
     .nav-link:hover {
       color: var(--gold);
     }
 
-    .hero {
-      background: url('hero-placeholder.jpg') center/cover no-repeat;
-      background-color: rgba(0,0,0,0.6);
-      background-blend-mode: multiply;
-      height: 90vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      text-align: center;
-      color: var(--text-light);
-      padding: 0 20px;
-    }
-
-    .hero h1 {
-      font-size: 3rem;
-      color: var(--gold);
-      font-weight: bold;
-    }
-
-    .hero p {
-      font-size: 1.2rem;
-      max-width: 700px;
-      margin: auto;
-    }
-
-    .section {
-      padding: 60px 20px;
-    }
-
-    .section h2 {
-      color: var(--gold);
+    .btn-gold {
+      background-color: var(--gold);
+      color: var(--black);
       font-weight: 600;
+      border: none;
+      transition: all 0.3s;
+    }
+
+    .btn-gold:hover {
+      background-color: var(--dark-gold);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+    }
+
+    .carousel-caption {
+      bottom: 30%;
+      text-align: left;
+      padding: 30px;
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 10px;
+      backdrop-filter: blur(5px);
+      width: 60%;
+      left: 10%;
+      right: auto;
+    }
+
+    .carousel-caption h5 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--gold);
       margin-bottom: 20px;
-      border-left: 5px solid var(--gold);
-      padding-left: 15px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .carousel-caption p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      margin-bottom: 25px;
+    }
+
+    .carousel-item img {
+      height: 100vh;
+      object-fit: cover;
+      width: 100%;
+      filter: brightness(0.7);
+    }
+
+    .carousel-control-prev,
+    .carousel-control-next {
+      width: 5%;
+    }
+
+    .carousel-indicators button {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      margin: 0 8px;
+      background-color: #fff;
+      opacity: 0.5;
+      transition: all 0.3s;
+    }
+
+    .carousel-indicators button.active {
+      background-color: var(--gold);
+      opacity: 1;
+      transform: scale(1.3);
+    }
+
+    section {
+      padding: 100px 0;
+      position: relative;
+    }
+
+    .section-title {
+      font-size: 2.8rem;
+      color: var(--gold);
+      margin-bottom: 60px;
+      text-align: center;
+      position: relative;
+      font-weight: 700;
+    }
+
+    .section-title:after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 3px;
+      background: var(--gold);
+      margin: 15px auto;
     }
 
     .feature-box {
       background: var(--dark-gray);
-      padding: 25px;
-      border: 1px solid rgba(212,175,55,0.2);
-      border-radius: 10px;
-      transition: 0.3s ease;
+      border: 1px solid var(--gold);
+      border-radius: 15px;
+      padding: 30px;
+      text-align: center;
+      transition: all 0.4s ease;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-box:before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        to bottom right,
+        rgba(255, 215, 0, 0.1),
+        rgba(255, 215, 0, 0)
+      );
+      transform: rotate(30deg);
+      transition: all 0.6s ease;
+      opacity: 0;
+    }
+
+    .feature-box:hover:before {
+      opacity: 1;
+      transform: rotate(0deg);
     }
 
     .feature-box:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(255, 215, 0, 0.2);
       border-color: var(--gold);
-      box-shadow: 0 0 15px rgba(212,175,55,0.1);
     }
 
     .feature-box i {
-      font-size: 2rem;
+      font-size: 2.5rem;
       color: var(--gold);
+      margin-bottom: 20px;
+    }
+
+    .feature-box h5 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+
+    .feature-box p {
+      color: var(--light-gray);
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      margin-bottom: 30px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      transition: all 0.4s;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.1);
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+      padding: 20px;
+      opacity: 0;
+      transition: all 0.3s;
+    }
+
+    .gallery-item:hover .gallery-overlay {
+      opacity: 1;
+    }
+
+    .gallery-overlay h5 {
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+    .footer {
+      background: var(--dark-gray);
+      padding: 60px 0 30px;
+      color: #ccc;
+      position: relative;
+    }
+
+    .footer:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(to right, var(--gold), var(--dark-gold));
+    }
+
+    .footer-logo {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 20px;
+      display: inline-block;
+    }
+
+    .footer-links h5 {
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 20px;
+      font-size: 1.2rem;
+    }
+
+    .footer-links ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-links li {
       margin-bottom: 10px;
     }
 
-    .gallery img {
-      width: 100%;
-      height: 250px;
-      object-fit: cover;
-      border-radius: 8px;
-      border: 2px solid var(--gold);
+    .footer-links a {
+      color: #ccc;
+      text-decoration: none;
+      transition: all 0.3s;
     }
 
-    footer {
-      background: var(--dark-gray);
-      color: #999;
+    .footer-links a:hover {
+      color: var(--gold);
+      padding-left: 5px;
+    }
+
+    .social-icons a {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      border-radius: 50%;
       text-align: center;
-      padding: 20px 10px;
-      border-top: 1px solid rgba(212,175,55,0.2);
+      line-height: 40px;
+      margin-right: 10px;
+      transition: all 0.3s;
+    }
+
+    .social-icons a:hover {
+      background: var(--gold);
+      color: var(--black);
+      transform: translateY(-5px);
+    }
+
+    .copyright {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 20px;
+      margin-top: 40px;
+      font-size: 0.9rem;
+    }
+
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background: var(--gold);
+      color: var(--black);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      z-index: 99;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .back-to-top.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .back-to-top:hover {
+      background: var(--dark-gold);
+      transform: translateY(-3px);
+    }
+
+    /* Animation classes */
+    .animate-delay-1 {
+      animation-delay: 0.2s;
+    }
+
+    .animate-delay-2 {
+      animation-delay: 0.4s;
+    }
+
+    .animate-delay-3 {
+      animation-delay: 0.6s;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 992px) {
+      .carousel-caption {
+        width: 80%;
+        bottom: 20%;
+      }
+
+      .carousel-caption h5 {
+        font-size: 2rem;
+      }
+
+      .carousel-caption p {
+        font-size: 1rem;
+      }
+
+      section {
+        padding: 80px 0;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .navbar-brand {
+        font-size: 1.5rem;
+      }
+
+      .section-title {
+        font-size: 2.2rem;
+      }
+
+      .carousel-caption {
+        width: 90%;
+        padding: 20px;
+        bottom: 15%;
+      }
+
+      .carousel-caption h5 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .carousel-caption {
+        bottom: 10%;
+        left: 5%;
+        width: 90%;
+      }
+
+      .carousel-caption h5 {
+        font-size: 1.2rem;
+      }
+
+      .carousel-caption p {
+        font-size: 0.9rem;
+        margin-bottom: 15px;
+      }
+
+      .section-title {
+        font-size: 1.8rem;
+      }
     }
   </style>
 </head>
-<body>
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark">
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="#"><i class="fas fa-crown me-2"></i>Elegance Salon</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+      <a class="navbar-brand" href="#">
+        <img src="assets/images/salonlogo.jpg" alt="Elegance Salon Logo">
+        ELEGANCE SALON
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="mainNav">
+      <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Appointments</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Clients</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Inventory</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+          <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+          <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+            <a class="btn btn-gold" href="contactus.php">Book Now</a>
+          </li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <!-- Hero -->
-  <section class="hero">
-    <h1>Elegance in Every Detail</h1>
-    <p>Streamline your beauty business with modern salon management features — elegant, efficient, and effortless.</p>
-  </section>
-
-  <!-- About Section -->
-  <section class="section container">
-    <h2>About the Project</h2>
-    <p>
-      Elegance Salon is a complete digital platform designed to simplify daily operations of salons like appointments, inventory, and staff scheduling.
-      This management system increases efficiency, enhances customer experience, and keeps everything organized — all in a beautiful black and gold interface.
-    </p>
-  </section>
-
-  <!-- Features -->
-  <section class="section container">
-    <h2>Key Features</h2>
-    <div class="row g-4">
-      <div class="col-md-4">
-        <div class="feature-box text-center">
-          <i class="fas fa-calendar-check"></i>
-          <h5 class="mt-3">Appointment Booking</h5>
-          <p>Book, cancel or reschedule with automated notifications.</p>
+  <!-- Carousel Banner -->
+  <div id="mainCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="0" class="active"></button>
+      <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="1"></button>
+      <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="2"></button>
+      <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="assets/images/salon.jpg" class="d-block w-100" alt="Luxury Salon Interior">
+        <div class="carousel-caption d-none d-md-block animate__animated animate__fadeInLeft">
+          <h5>Experience Luxury Redefined</h5>
+          <p>Step into our elegant space where beauty meets sophistication. Our award-winning salon design creates the perfect ambiance for your transformation.</p>
+          <a href="#about" class="btn btn-gold">Discover More</a>
         </div>
       </div>
-      <div class="col-md-4">
-        <div class="feature-box text-center">
-          <i class="fas fa-user-friends"></i>
-          <h5 class="mt-3">Client Profiles</h5>
-          <p>Track preferences, visit history, and feedback.</p>
+      <div class="carousel-item">
+        <img src="assets/images/haircut.jpg" class="d-block w-100" alt="Professional Hair Services">
+        <div class="carousel-caption d-none d-md-block animate__animated animate__fadeInLeft">
+          <h5>Masterful Hair Artistry</h5>
+          <p>Our certified stylists create personalized looks using only premium products. From precision cuts to vibrant coloring, we bring your vision to life.</p>
+          <a href="#services" class="btn btn-gold">Our Services</a>
         </div>
       </div>
-      <div class="col-md-4">
-        <div class="feature-box text-center">
-          <i class="fas fa-box-open"></i>
-          <h5 class="mt-3">Inventory Alerts</h5>
-          <p>Get notified for low stock and auto-generate orders.</p>
+      <div class="carousel-item">
+        <img src="assets/images/nails.jpg" class="d-block w-100" alt="Luxury Nail Services">
+        <div class="carousel-caption d-none d-md-block animate__animated animate__fadeInLeft">
+          <h5>Luxury Nail Studio</h5>
+          <p>Indulge in our spa manicures and pedicures with organic products. Experience nail art that transforms your hands into works of art.</p>
+          <a href="#gallery" class="btn btn-gold">View Gallery</a>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="assets/images/client services.png" class="d-block w-100" alt="Personalized Client Services">
+        <div class="carousel-caption d-none d-md-block animate__animated animate__fadeInLeft">
+          <h5>Personalized Beauty Experience</h5>
+          <p>Our client-centric approach ensures every visit is tailored to your unique needs and preferences for exceptional results every time.</p>
+          <a href="contactus.php" class="btn btn-gold">Book Appointment</a>
         </div>
       </div>
     </div>
-    <div class="row g-4 mt-3">
-      <div class="col-md-4">
-        <div class="feature-box text-center">
-          <i class="fas fa-users-cog"></i>
-          <h5 class="mt-3">Staff Management</h5>
-          <p>Assign shifts, calculate commissions, and track performance.</p>
+    <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <!-- About Section -->
+  <section id="about" class="bg-dark">
+    <div class="container">
+      <h2 class="section-title animate__animated animate__fadeInUp">About Elegance Salon</h2>
+      <div class="row align-items-center">
+        <div class="col-lg-6 mb-5 mb-lg-0 animate__animated animate__fadeInLeft">
+          <img src="assets/images/rec desk.jpg" alt="Elegance Salon Reception" class="img-fluid rounded shadow-lg">
+          <div class="row mt-4">
+            <div class="col-6">
+              <img src="assets/images/serv1.jpg" alt="Salon Service Area" class="img-fluid rounded shadow-lg mb-3">
+            </div>
+            <div class="col-6">
+              <img src="assets/images/rec1.jpg" alt="Salon Waiting Area" class="img-fluid rounded shadow-lg mb-3">
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 animate__animated animate__fadeInRight">
+          <div class="ps-lg-5">
+            <h3 class="text-gold mb-4">Redefining Beauty Standards Since 2010</h3>
+            <p class="text-white mb-4">Elegance Salon stands as a beacon of luxury and innovation in the beauty industry. Founded by master stylist Elena Rodriguez, our salon has grown from a single-chair boutique to a 2,500 sq ft luxury beauty destination, earning numerous industry awards along the way.</p>
+            
+            <div class="d-flex mb-4">
+              <div class="me-4">
+                <h4 class="text-gold">15+</h4>
+                <p class="text-white">Professional Stylists</p>
+              </div>
+              <div class="me-4">
+                <h4 class="text-gold">10K+</h4>
+                <p class="text-white">Happy Clients</p>
+              </div>
+              <div>
+                <h4 class="text-gold">50+</h4>
+                <p class="text-white">Industry Awards</p>
+              </div>
+            </div>
+            
+            <p class="text-white mb-4">What sets us apart is our holistic approach to beauty. We don't just change your look; we enhance your natural features while considering your lifestyle, personality, and preferences. Our team regularly attends international training sessions in Paris, Milan, and New York to stay at the forefront of beauty trends.</p>
+            
+            <h5 class="text-gold mb-3">Our Philosophy</h5>
+            <p class="text-white mb-4">We believe true beauty comes from confidence. Our mission is to provide services that make you look incredible while creating an experience that makes you feel valued and pampered. Every product we use is carefully selected for quality, sustainability, and performance.</p>
+            
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <div class="d-flex">
+                  <i class="bi bi-check-circle-fill text-gold me-2"></i>
+                  <span class="text-white">Cruelty-free products</span>
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <div class="d-flex">
+                  <i class="bi bi-check-circle-fill text-gold me-2"></i>
+                  <span class="text-white">Sanitation certified</span>
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <div class="d-flex">
+                  <i class="bi bi-check-circle-fill text-gold me-2"></i>
+                  <span class="text-white">Eco-conscious practices</span>
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <div class="d-flex">
+                  <i class="bi bi-check-circle-fill text-gold me-2"></i>
+                  <span class="text-white">Accessibility features</span>
+                </div>
+              </div>
+            </div>
+            
+            <a href="#contact" class="btn btn-gold mt-3">Visit Us Today</a>
+          </div>
         </div>
       </div>
-      <div class="col-md-4">
-        <div class="feature-box text-center">
-          <i class="fas fa-chart-line"></i>
-          <h5 class="mt-3">Reports & Analytics</h5>
-          <p>Understand trends in sales, service demand, and hours.</p>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="bg-black">
+    <div class="container">
+      <h2 class="section-title animate__animated animate__fadeInUp">Our Premium Services</h2>
+      <p class="text-center text-white mb-5 animate__animated animate__fadeInUp">We offer a comprehensive range of beauty services performed by specialists in each field.</p>
+      
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp animate-delay-1">
+          <div class="feature-box">
+            <img src="assets/images/haircut.jpg" alt="Hair Services" class="img-fluid rounded mb-3">
+            <h5>Hair Services</h5>
+            <ul class="text-start ps-3">
+              <li>Precision haircuts & styling</li>
+              <li>Balayage & creative coloring</li>
+              <li>Keratin treatments</li>
+              <li>Extensions & weaves</li>
+              <li>Bridal hair design</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp animate-delay-2">
+          <div class="feature-box">
+            <img src="assets/images/nails.jpg" alt="Nail Services" class="img-fluid rounded mb-3">
+            <h5>Nail Studio</h5>
+            <ul class="text-start ps-3">
+              <li>Luxury manicures</li>
+              <li>Spa pedicures</li>
+              <li>Gel & acrylic extensions</li>
+              <li>Nail art & design</li>
+              <li>Medical pedicures</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp animate-delay-3">
+          <div class="feature-box">
+            <img src="assets/images/services.jpg" alt="Skin Care" class="img-fluid rounded mb-3">
+            <h5>Skin Care</h5>
+            <ul class="text-start ps-3">
+              <li>Facials & peels</li>
+              <li>Microdermabrasion</li>
+              <li>LED light therapy</li>
+              <li>Waxing & threading</li>
+              <li>Eyelash extensions</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp animate-delay-1">
+          <div class="feature-box">
+            <img src="assets/images/makeover.webp" alt="Makeup Services" class="img-fluid rounded mb-3">
+            <h5>Makeup Artistry</h5>
+            <ul class="text-start ps-3">
+              <li>Bridal makeup</li>
+              <li>Editorial makeup</li>
+              <li>Special occasion</li>
+              <li>Airbrush makeup</li>
+              <li>Makeup lessons</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp animate-delay-2">
+          <div class="feature-box">
+            <img src="assets/images/client services.png" alt="Spa Services" class="img-fluid rounded mb-3">
+            <h5>Spa Services</h5>
+            <ul class="text-start ps-3">
+              <li>Massage therapy</li>
+              <li>Body treatments</li>
+              <li>Aromatherapy</li>
+              <li>Detox wraps</li>
+              <li>Couples packages</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp animate-delay-3">
+          <div class="feature-box">
+            <img src="assets/images/rec1.jpg" alt="Special Packages" class="img-fluid rounded mb-3">
+            <h5>Special Packages</h5>
+            <ul class="text-start ps-3">
+              <li>Complete makeovers</li>
+              <li>Bridal packages</li>
+              <li>Teen beauty days</li>
+              <li>Executive grooming</li>
+              <li>Membership programs</li>
+            </ul>
+          </div>
         </div>
       </div>
-      <div class="col-md-4">
-        <div class="feature-box text-center">
-          <i class="fas fa-envelope-open-text"></i>
-          <h5 class="mt-3">Notifications</h5>
-          <p>Stay updated with reminders for appointments & tasks.</p>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="features" class="bg-dark">
+    <div class="container">
+      <h2 class="section-title animate__animated animate__fadeInUp">Why Choose Elegance</h2>
+      <p class="text-center text-white mb-5 animate__animated animate__fadeInUp">Our commitment to excellence sets us apart in the beauty industry.</p>
+      
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3 animate__animated animate__fadeInUp animate-delay-1">
+          <div class="feature-box">
+            <i class="bi bi-people-fill"></i>
+            <h5>Expert Stylists</h5>
+            <p>Our team consists of industry-certified professionals with specialized training in their respective fields.</p>
+          </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-3 animate__animated animate__fadeInUp animate-delay-2">
+          <div class="feature-box">
+            <i class="bi bi-star-fill"></i>
+            <h5>Premium Products</h5>
+            <p>We use only top-tier professional products from brands like Oribe, Kerastase, and Dermalogica.</p>
+          </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-3 animate__animated animate__fadeInUp animate-delay-3">
+          <div class="feature-box">
+            <i class="bi bi-shield-check"></i>
+            <h5>Hygiene First</h5>
+            <p>Our salon exceeds all health department requirements with hospital-grade sanitation protocols.</p>
+          </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-3 animate__animated animate__fadeInUp animate-delay-1">
+          <div class="feature-box">
+            <i class="bi bi-calendar2-check"></i>
+            <h5>Easy Booking</h5>
+            <p>Schedule appointments 24/7 through our app, website, or by phone with instant confirmations.</p>
+          </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-3 animate__animated animate__fadeInUp animate-delay-2">
+          <div class="feature-box">
+            <i class="bi bi-gem"></i>
+            <h5>Luxury Experience</h5>
+            <p>From champagne service to massage chairs, we pamper you throughout your visit.</p>
+          </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-3 animate__animated animate__fadeInUp animate-delay-3">
+          <div class="feature-box">
+            <i class="bi bi-heart-fill"></i>
+            <h5>Personalized Care</h5>
+            <p>Customized services based on your unique features, lifestyle, and preferences.</p>
+          </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-3 animate__animated animate__fadeInUp animate-delay-1">
+          <div class="feature-box">
+            <i class="bi bi-award-fill"></i>
+            <h5>Quality Guarantee</h5>
+            <p>Not satisfied? We'll make it right. Your happiness is our priority.</p>
+          </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-3 animate__animated animate__fadeInUp animate-delay-2">
+          <div class="feature-box">
+            <i class="bi bi-coin"></i>
+            <h5>Loyalty Rewards</h5>
+            <p>Earn points with every visit redeemable for services, products, or discounts.</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Gallery -->
-  <section class="section container">
-    <h2>Gallery</h2>
-    <div class="row g-3">
-      <div class="col-md-4"><img src="assets/images/salon.jpg" alt="Salon Interior" class="img-fluid gallery"></div>
-      <div class="col-md-4"><img src="assets/images/serv1.jpg" alt="Client Services" class="img-fluid gallery"></div>
-      <div class="col-md-4"><img src="assets/images/rec1.jpg" alt="Reception Desk" class="img-fluid gallery"></div>
+  <section id="gallery" class="bg-black">
+    <div class="container">
+      <h2 class="section-title animate__animated animate__fadeInUp">Our Salon Gallery</h2>
+      <p class="text-center text-white mb-5 animate__animated animate__fadeInUp">Take a virtual tour of our luxurious space and see our work.</p>
+      
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp animate-delay-1">
+          <div class="gallery-item">
+            <img src="assets/images/salon.jpg" alt="Salon Interior">
+            <div class="gallery-overlay">
+              <h5>Main Salon Area</h5>
+              <p class="text-white">Our spacious styling stations with premium equipment</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp animate-delay-2">
+          <div class="gallery-item">
+            <img src="assets/images/serv1.jpg" alt="Service Area">
+            <div class="gallery-overlay">
+              <h5>Color Bar</h5>
+              <p class="text-white">Specialized area for custom color formulations</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp animate-delay-3">
+          <div class="gallery-item">
+            <img src="assets/images/rec1.jpg" alt="Reception Area">
+            <div class="gallery-overlay">
+              <h5>Reception Lounge</h5>
+              <p class="text-white">Relax in our comfortable waiting area</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp animate-delay-1">
+          <div class="gallery-item">
+            <img src="assets/images/haircut.jpg" alt="Hair Services">
+            <div class="gallery-overlay">
+              <h5>Hair Services</h5>
+              <p class="text-white">Precision cutting and styling in action</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp animate-delay-2">
+          <div class="gallery-item">
+            <img src="assets/images/nails.jpg" alt="Nail Services">
+            <div class="gallery-overlay">
+              <h5>Nail Studio</h5>
+              <p class="text-white">Luxury manicures and pedicures</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp animate-delay-3">
+          <div class="gallery-item">
+            <img src="assets/images/makeover.webp" alt="Makeup Services">
+            <div class="gallery-overlay">
+              <h5>Makeup Studio</h5>
+              <p class="text-white">Professional makeup application area</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section id="testimonials" class="bg-dark">
+    <div class="container">
+      <h2 class="section-title animate__animated animate__fadeInUp">Client Testimonials</h2>
+      <p class="text-center text-white mb-5 animate__animated animate__fadeInUp">Hear what our clients say about their experiences.</p>
+      
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="testimonial-box p-4 p-lg-5 text-center">
+                  <img src="assets/images/OIP.jpeg" alt="Client" class="rounded-circle mb-4" width="100">
+                  <p class="text-white mb-4">"Elegance Salon transformed my look for my wedding day. The team listened to my vision and executed it perfectly. I felt like the best version of myself!"</p>
+                  <h5 class="text-gold mb-1">Sarah Johnson</h5>
+                  <p class="text-muted">Bride</p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="testimonial-box p-4 p-lg-5 text-center">
+                  <img src="assets/images/black.jpg" alt="Client" class="rounded-circle mb-4" width="100">
+                  <p class="text-white mb-4">"As someone with curly hair, I've struggled to find stylists who understand texture. The curl specialist at Elegance gave me the best cut of my life!"</p>
+                  <h5 class="text-gold mb-1">Michael Chen</h5>
+                  <p class="text-muted">Regular Client</p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="testimonial-box p-4 p-lg-5 text-center">
+                  <img src="assets/images/client services.png" alt="Client" class="rounded-circle mb-4" width="100">
+                  <p class="text-white mb-4">"The spa pedicure is worth every penny. My feet have never felt better, and the nail art lasted perfectly for three weeks. Pure luxury!"</p>
+                  <h5 class="text-gold mb-1">Emily Rodriguez</h5>
+                  <p class="text-muted">Spa Enthusiast</p>
+                </div>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="bg-black">
+    <div class="container">
+      <h2 class="section-title animate__animated animate__fadeInUp">Visit Us</h2>
+      <p class="text-center text-white mb-5 animate__animated animate__fadeInUp">We'd love to welcome you to our salon. Here's how to find us.</p>
+      
+      <div class="row g-5">
+        <div class="col-lg-6 animate__animated animate__fadeInLeft">
+          <div class="contact-info p-4 p-lg-5 h-100">
+            <h4 class="text-gold mb-4">Contact Information</h4>
+            
+            <div class="d-flex mb-4">
+              <i class="bi bi-geo-alt-fill text-gold me-3 fs-4"></i>
+              <div>
+                <h5 class="text-white">Location</h5>
+                <p class="text-white mb-0">123 Beauty Avenue<br>Luxury District<br>New York, NY 10001</p>
+              </div>
+            </div>
+            
+            <div class="d-flex mb-4">
+              <i class="bi bi-telephone-fill text-gold me-3 fs-4"></i>
+              <div>
+                <h5 class="text-white">Phone</h5>
+                <p class="text-white mb-0">(212) 555-1234</p>
+              </div>
+            </div>
+            
+            <div class="d-flex mb-4">
+              <i class="bi bi-envelope-fill text-gold me-3 fs-4"></i>
+              <div>
+                <h5 class="text-white">Email</h5>
+                <p class="text-white mb-0">info@elegancesalon.com</p>
+              </div>
+            </div>
+            
+            <div class="d-flex mb-4">
+              <i class="bi bi-clock-fill text-gold me-3 fs-4"></i>
+              <div>
+                <h5 class="text-white">Hours</h5>
+                <p class="text-white mb-0">Monday - Friday: 9am - 8pm<br>Saturday: 9am - 6pm<br>Sunday: 10am - 4pm</p>
+              </div>
+            </div>
+            
+            <h5 class="text-gold mt-5 mb-3">Follow Us</h5>
+            <div class="social-icons">
+              <a href="#"><i class="bi bi-facebook"></i></a>
+              <a href="#"><i class="bi bi-instagram"></i></a>
+              <a href="#"><i class="bi bi-tiktok"></i></a>
+              <a href="#"><i class="bi bi-pinterest"></i></a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-6 animate__animated animate__fadeInRight">
+          <div class="contact-map p-4 p-lg-5 h-100">
+            <h4 class="text-gold mb-4">Map Location</h4>
+            <div class="ratio ratio-16x9">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.215209132468!2d-73.9878449242394!3d40.74844097138946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9b3117469%3A0xd134e199a405a163!2sEmpire%20State%20Building!5e0!3m2!1sen!2sus!4v1629915426785!5m2!1sen!2sus" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            
+            <div class="mt-4">
+              <h5 class="text-gold mb-3">Parking Information</h5>
+              <p class="text-white">Valet parking available at the front entrance for $15/hour. Several parking garages within a 2-block radius offer discounted rates for salon clients - ask reception for validation.</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer>
-    <p>&copy; <?= date('Y') ?> Elegance Salon | Developed by [Your Company/Name]</p>
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 mb-5 mb-lg-0">
+          <div class="footer-about">
+            <div class="footer-logo mb-3">ELEGANCE SALON</div>
+            <p class="text-white">Redefining beauty with luxury services, premium products, and exceptional customer care since 2010.</p>
+            <div class="mt-4">
+              <a href="#" class="btn btn-gold">Book Appointment</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-sm-6 col-lg-2 mb-4 mb-sm-0">
+          <div class="footer-links">
+            <h5>Services</h5>
+            <ul>
+              <li><a href="#">Hair</a></li>
+              <li><a href="#">Nails</a></li>
+              <li><a href="#">Skin Care</a></li>
+              <li><a href="#">Makeup</a></li>
+              <li><a href="#">Spa</a></li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="col-sm-6 col-lg-2 mb-4 mb-sm-0">
+          <div class="footer-links">
+            <h5>Company</h5>
+            <ul>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Our Team</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Press</a></li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="col-lg-4">
+          <div class="footer-newsletter">
+            <h5>Join Our Newsletter</h5>
+            <p class="text-white">Subscribe for beauty tips, special offers, and exclusive events.</p>
+            <form class="mt-3">
+              <div class="input-group">
+                <input type="email" class="form-control" placeholder="Your email" required>
+                <button class="btn btn-gold" type="submit">Subscribe</button>
+              </div>
+            </form>
+            
+            <div class="social-icons mt-4">
+              <a href="#"><i class="bi bi-facebook"></i></a>
+              <a href="#"><i class="bi bi-instagram"></i></a>
+              <a href="#"><i class="bi bi-tiktok"></i></a>
+              <a href="#"><i class="bi bi-youtube"></i></a>
+              <a href="#"><i class="bi bi-pinterest"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="copyright text-center">
+        <p class="mb-0">&copy; <?= date('Y') ?> Elegance Salon. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+      </div>
+    </div>
   </footer>
 
-  <!-- Bootstrap JS -->
+  <!-- Back to Top Button -->
+  <a href="#" class="back-to-top"><i class="bi bi-arrow-up"></i></a>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Back to top button
+    const backToTopButton = document.querySelector('.back-to-top');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 300) {
+        backToTopButton.classList.add('active');
+      } else {
+        backToTopButton.classList.remove('active');
+      }
+    });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // Animation on scroll
+    function animateOnScroll() {
+      const elements = document.querySelectorAll('.animate__animated');
+      
+      elements.forEach(element => {
+        const elementPosition = element.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight / 1.2;
+        
+        if (elementPosition < screenPosition) {
+          const animationClass = element.getAttribute('data-animation');
+          element.classList.add(animationClass);
+        }
+      });
+    }
+
+    window.addEventListener('scroll', animateOnScroll);
+    window.addEventListener('load', animateOnScroll);
+  </script>
 </body>
+
 </html>
