@@ -104,7 +104,7 @@
       <p>Or reach us directly:</p>
       <p>📞 <a href="tel:+3308682472">+</a></p>
       <p>📧 <a href="mailto:contact@elegancesalon.com">contact@elegancesalon.com</a></p>
-      <p>📍 City</p>
+      <p>📍  City</p>
     </div>
   </div>
 
