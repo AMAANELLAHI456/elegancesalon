@@ -130,13 +130,13 @@ $appt_data = mysqli_fetch_assoc($appt_result);
     <!-- Navigation -->
     <div class="row">
       <div class="col-md-3 col-6">
-        <a href="clients.php" class="nav-card">
+        <a href="receptionist/clients.php" class="nav-card">
           <div class="nav-icon"><i class="fas fa-users"></i></div>
           <div class="nav-title">Clients</div>
         </a>
       </div>
       <div class="col-md-3 col-6">
-        <a href="appointments.php" class="nav-card">
+        <a href="receptionist/appointments.php" class="nav-card">
           <div class="nav-icon"><i class="fas fa-calendar-alt"></i></div>
           <div class="nav-title">Appointments</div>
         </a>
