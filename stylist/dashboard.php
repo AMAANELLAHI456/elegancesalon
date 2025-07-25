@@ -2,7 +2,6 @@
 require_once '../includes/db.php';
 require_once '../includes/auth.php';
 
-// ✅ Fix: Use 'role' not 'role_id'
 if ($_SESSION['role_id'] != 3) {
     header("Location: ../login.php");
     exit;
@@ -55,114 +54,155 @@ $result_schedule = mysqli_stmt_get_result($stmt2);
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
-      --gold: #FFD700;
-      --black: #000;
-      --light: #eeeeee;
+      --gold: #D4AF37;
+      --dark-gold: #B7950B;
+      --black: #000000;
+      --darker-gray: #121212;
+      --light-gray: #E0E0E0;
     }
 
     body {
       background-color: var(--black);
-      color: var(--light);
-      padding: 20px;
+      color: var(--light-gray);
+      font-family: 'Montserrat', sans-serif;
     }
 
     .dashboard-container {
       max-width: 1200px;
-      margin: auto;
+      margin: 0 auto;
+      padding: 2rem;
     }
 
-    .logo {
-      height: 80px;
-      display: block;
-      margin: 0 auto 20px;
+    .header-section {
+      border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+      padding-bottom: 1rem;
+      margin-bottom: 2rem;
+      text-align: center;
     }
 
     .dashboard-title {
-      text-align: center;
       color: var(--gold);
-      margin-bottom: 30px;
+      font-weight: 300;
+      letter-spacing: 1px;
     }
 
-    .stat-card, .nav-card {
-      background: rgba(30, 30, 30, 0.8);
-      border: 1px solid rgba(255, 215, 0, 0.3);
-      border-radius: 10px;
-      padding: 20px;
-      margin-bottom: 20px;
-      text-align: center;
+    .card {
+      background: var(--black);
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      height: 100%;
     }
 
-    .stat-icon, .nav-icon {
-      font-size: 24px;
+    .card-title {
       color: var(--gold);
-      margin-bottom: 10px;
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    .stat-title {
-      font-size: 16px;
-      color: var(--light);
+    .card-title i {
+      margin-right: 0.75rem;
+      font-size: 1.5rem;
     }
 
-    a.nav-card {
-      display: block;
+    .list-group-item {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.1);
+      color: var(--light-gray);
+    }
+
+    .table {
+      color: var(--light-gray);
+    }
+
+    .table th {
+      color: var(--gold);
+      border-color: rgba(212, 175, 55, 0.3);
+    }
+
+    .table td {
+      border-color: rgba(255, 255, 255, 0.05);
+    }
+
+    .nav-card {
+      transition: all 0.3s ease;
       text-decoration: none;
       color: inherit;
+    }
+
+    .nav-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+      border-color: var(--gold);
+    }
+
+    .text-muted {
+      color: var(--light-gray) !important;
+      opacity: 0.7;
     }
   </style>
 </head>
 <body>
   <div class="dashboard-container">
-    <img src="../assets/images/salonlogo.jpg" alt="Elegance Salon" class="logo">
-    <h2 class="dashboard-title">Welcome, <?= htmlspecialchars($stylist_name) ?> ✂️</h2>
+    <div class="header-section">
+      <h1 class="dashboard-title"><i class="fas fa-cut"></i> Welcome, <?= htmlspecialchars($stylist_name) ?></h1>
+    </div>
 
     <div class="row">
       <!-- Today's Appointments -->
       <div class="col-md-6">
-        <div class="stat-card">
-          <div class="stat-icon"><i class="fas fa-calendar-check"></i></div>
-          <h5 class="text-warning mb-3">Today's Appointments</h5>
+        <div class="card">
+          <h5 class="card-title"><i class="fas fa-calendar-check"></i> Today's Appointments</h5>
           <?php if (mysqli_num_rows($result_today) > 0): ?>
-            <ul class="list-group list-group-flush bg-transparent text-white">
+            <ul class="list-group">
               <?php while ($row = mysqli_fetch_assoc($result_today)): ?>
-                <li class="list-group-item bg-transparent border-light text-light">
-                  <strong><?= date("h:i A", strtotime($row['appointment_time'])) ?></strong> –
-                  <?= htmlspecialchars($row['client_name']) ?> 
-                  (<?= htmlspecialchars($row['service_name']) ?>)
+                <li class="list-group-item">
+                  <div class="d-flex justify-content-between">
+                    <span><strong><?= date("h:i A", strtotime($row['appointment_time'])) ?></strong></span>
+                    <span><?= htmlspecialchars($row['client_name']) ?></span>
+                  </div>
+                  <div class="text-muted"><?= htmlspecialchars($row['service_name']) ?></div>
                 </li>
               <?php endwhile; ?>
             </ul>
           <?php else: ?>
-            <p class="text-muted">No appointments today.</p>
+            <p class="text-muted text-center">No appointments today</p>
           <?php endif; ?>
         </div>
       </div>
 
       <!-- Weekly Schedule -->
       <div class="col-md-6">
-        <div class="stat-card">
-          <div class="stat-icon"><i class="fas fa-calendar-week"></i></div>
-          <h5 class="text-warning mb-3">This Week's Schedule</h5>
+        <div class="card">
+          <h5 class="card-title"><i class="fas fa-calendar-week"></i> This Week's Schedule</h5>
           <?php if (mysqli_num_rows($result_schedule) > 0): ?>
-            <table class="table table-sm table-bordered text-white">
-              <thead>
-                <tr>
-                  <th>Date</th>
-                  <th>Start</th>
-                  <th>End</th>
-                </tr>
-              </thead>
-              <tbody>
-                <?php while ($row = mysqli_fetch_assoc($result_schedule)): ?>
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
                   <tr>
-                    <td><?= date("D, M d", strtotime($row['shift_start'])) ?></td>
-                    <td><?= date("h:i A", strtotime($row['shift_start'])) ?></td>
-                    <td><?= date("h:i A", strtotime($row['shift_end'])) ?></td>
+                    <th>Date</th>
+                    <th>Start</th>
+                    <th>End</th>
                   </tr>
-                <?php endwhile; ?>
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  <?php while ($row = mysqli_fetch_assoc($result_schedule)): ?>
+                    <tr>
+                      <td><?= date("D, M d", strtotime($row['shift_start'])) ?></td>
+                      <td><?= date("h:i A", strtotime($row['shift_start'])) ?></td>
+                      <td><?= date("h:i A", strtotime($row['shift_end'])) ?></td>
+                    </tr>
+                  <?php endwhile; ?>
+                </tbody>
+              </table>
+            </div>
           <?php else: ?>
-            <p class="text-muted">No shifts scheduled this week.</p>
+            <p class="text-muted text-center">No shifts scheduled this week</p>
           <?php endif; ?>
         </div>
       </div>
@@ -171,15 +211,15 @@ $result_schedule = mysqli_stmt_get_result($stmt2);
     <!-- Quick Navigation -->
     <div class="row">
       <div class="col-md-6">
-        <a href="my_appointments.php" class="nav-card stat-card">
-          <div class="nav-icon"><i class="fas fa-calendar-alt"></i></div>
-          <div class="stat-title">My Appointments</div>
+        <a href="my_appointments.php" class="card nav-card">
+          <h5 class="card-title"><i class="fas fa-calendar-alt"></i> My Appointments</h5>
+          <p class="text-muted text-center">View and manage all your appointments</p>
         </a>
       </div>
       <div class="col-md-6">
-        <a href="my_schedule.php" class="nav-card stat-card">
-          <div class="nav-icon"><i class="fas fa-clipboard-list"></i></div>
-          <div class="stat-title">My Schedule</div>
+        <a href="my_schedule.php" class="card nav-card">
+          <h5 class="card-title"><i class="fas fa-clipboard-list"></i> My Schedule</h5>
+          <p class="text-muted text-center">View and update your availability</p>
         </a>
       </div>
     </div>

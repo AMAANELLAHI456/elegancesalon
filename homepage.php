@@ -455,7 +455,7 @@
 
 <body>
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
     <div class="container">
       <a class="navbar-brand" href="#">
         <img src="assets/images/salonlogo.jpg" alt="Elegance Salon Logo">
@@ -467,11 +467,9 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-          <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
-          <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.php">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="contactus.php">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="feedback.php">Feedback</a></li>
           <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
             <a class="btn btn-gold" href="contactus.php">Book Now</a>
           </li>
@@ -494,7 +492,7 @@
         <div class="carousel-caption d-none d-md-block animate__animated animate__fadeInLeft">
           <h5>Experience Luxury Redefined</h5>
           <p>Step into our elegant space where beauty meets sophistication. Our award-winning salon design creates the perfect ambiance for your transformation.</p>
-          <a href="#about" class="btn btn-gold">Discover More</a>
+          <a href="about.html" class="btn btn-gold">Discover More</a>
         </div>
       </div>
       <div class="carousel-item">
@@ -502,7 +500,7 @@
         <div class="carousel-caption d-none d-md-block animate__animated animate__fadeInLeft">
           <h5>Masterful Hair Artistry</h5>
           <p>Our certified stylists create personalized looks using only premium products. From precision cuts to vibrant coloring, we bring your vision to life.</p>
-          <a href="#services" class="btn btn-gold">Our Services</a>
+          <a href="contactus.php" class="btn btn-gold">Book Appointment</a>
         </div>
       </div>
       <div class="carousel-item">
@@ -510,7 +508,7 @@
         <div class="carousel-caption d-none d-md-block animate__animated animate__fadeInLeft">
           <h5>Luxury Nail Studio</h5>
           <p>Indulge in our spa manicures and pedicures with organic products. Experience nail art that transforms your hands into works of art.</p>
-          <a href="#gallery" class="btn btn-gold">View Gallery</a>
+          <a href="contactus.php" class="btn btn-gold">Book Now</a>
         </div>
       </div>
       <div class="carousel-item">
@@ -531,81 +529,6 @@
       <span class="visually-hidden">Next</span>
     </button>
   </div>
-
-  <!-- About Section -->
-  <section id="about" class="bg-dark">
-    <div class="container">
-      <h2 class="section-title animate__animated animate__fadeInUp">About Elegance Salon</h2>
-      <div class="row align-items-center">
-        <div class="col-lg-6 mb-5 mb-lg-0 animate__animated animate__fadeInLeft">
-          <img src="assets/images/rec desk.jpg" alt="Elegance Salon Reception" class="img-fluid rounded shadow-lg">
-          <div class="row mt-4">
-            <div class="col-6">
-              <img src="assets/images/serv1.jpg" alt="Salon Service Area" class="img-fluid rounded shadow-lg mb-3">
-            </div>
-            <div class="col-6">
-              <img src="assets/images/rec1.jpg" alt="Salon Waiting Area" class="img-fluid rounded shadow-lg mb-3">
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-6 animate__animated animate__fadeInRight">
-          <div class="ps-lg-5">
-            <h3 class="text-gold mb-4">Redefining Beauty Standards Since 2010</h3>
-            <p class="text-white mb-4">Elegance Salon stands as a beacon of luxury and innovation in the beauty industry. Founded by master stylist Elena Rodriguez, our salon has grown from a single-chair boutique to a 2,500 sq ft luxury beauty destination, earning numerous industry awards along the way.</p>
-            
-            <div class="d-flex mb-4">
-              <div class="me-4">
-                <h4 class="text-gold">15+</h4>
-                <p class="text-white">Professional Stylists</p>
-              </div>
-              <div class="me-4">
-                <h4 class="text-gold">10K+</h4>
-                <p class="text-white">Happy Clients</p>
-              </div>
-              <div>
-                <h4 class="text-gold">50+</h4>
-                <p class="text-white">Industry Awards</p>
-              </div>
-            </div>
-            
-            <p class="text-white mb-4">What sets us apart is our holistic approach to beauty. We don't just change your look; we enhance your natural features while considering your lifestyle, personality, and preferences. Our team regularly attends international training sessions in Paris, Milan, and New York to stay at the forefront of beauty trends.</p>
-            
-            <h5 class="text-gold mb-3">Our Philosophy</h5>
-            <p class="text-white mb-4">We believe true beauty comes from confidence. Our mission is to provide services that make you look incredible while creating an experience that makes you feel valued and pampered. Every product we use is carefully selected for quality, sustainability, and performance.</p>
-            
-            <div class="row">
-              <div class="col-md-6 mb-3">
-                <div class="d-flex">
-                  <i class="bi bi-check-circle-fill text-gold me-2"></i>
-                  <span class="text-white">Cruelty-free products</span>
-                </div>
-              </div>
-              <div class="col-md-6 mb-3">
-                <div class="d-flex">
-                  <i class="bi bi-check-circle-fill text-gold me-2"></i>
-                  <span class="text-white">Sanitation certified</span>
-                </div>
-              </div>
-              <div class="col-md-6 mb-3">
-                <div class="d-flex">
-                  <i class="bi bi-check-circle-fill text-gold me-2"></i>
-                  <span class="text-white">Eco-conscious practices</span>
-                </div>
-              </div>
-              <div class="col-md-6 mb-3">
-                <div class="d-flex">
-                  <i class="bi bi-check-circle-fill text-gold me-2"></i>
-                  <span class="text-white">Accessibility features</span>
-                </div>
-              </div>
-            </div>
-            
-            <a href="#contact" class="btn btn-gold mt-3">Visit Us Today</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- Services Section -->
   <section id="services" class="bg-black">
@@ -894,76 +817,6 @@
     </div>
   </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="bg-black">
-    <div class="container">
-      <h2 class="section-title animate__animated animate__fadeInUp">Visit Us</h2>
-      <p class="text-center text-white mb-5 animate__animated animate__fadeInUp">We'd love to welcome you to our salon. Here's how to find us.</p>
-      
-      <div class="row g-5">
-        <div class="col-lg-6 animate__animated animate__fadeInLeft">
-          <div class="contact-info p-4 p-lg-5 h-100">
-            <h4 class="text-gold mb-4">Contact Information</h4>
-            
-            <div class="d-flex mb-4">
-              <i class="bi bi-geo-alt-fill text-gold me-3 fs-4"></i>
-              <div>
-                <h5 class="text-white">Location</h5>
-                <p class="text-white mb-0">123 Beauty Avenue<br>Luxury District<br>New York, NY 10001</p>
-              </div>
-            </div>
-            
-            <div class="d-flex mb-4">
-              <i class="bi bi-telephone-fill text-gold me-3 fs-4"></i>
-              <div>
-                <h5 class="text-white">Phone</h5>
-                <p class="text-white mb-0">(212) 555-1234</p>
-              </div>
-            </div>
-            
-            <div class="d-flex mb-4">
-              <i class="bi bi-envelope-fill text-gold me-3 fs-4"></i>
-              <div>
-                <h5 class="text-white">Email</h5>
-                <p class="text-white mb-0">info@elegancesalon.com</p>
-              </div>
-            </div>
-            
-            <div class="d-flex mb-4">
-              <i class="bi bi-clock-fill text-gold me-3 fs-4"></i>
-              <div>
-                <h5 class="text-white">Hours</h5>
-                <p class="text-white mb-0">Monday - Friday: 9am - 8pm<br>Saturday: 9am - 6pm<br>Sunday: 10am - 4pm</p>
-              </div>
-            </div>
-            
-            <h5 class="text-gold mt-5 mb-3">Follow Us</h5>
-            <div class="social-icons">
-              <a href="#"><i class="bi bi-facebook"></i></a>
-              <a href="#"><i class="bi bi-instagram"></i></a>
-              <a href="#"><i class="bi bi-tiktok"></i></a>
-              <a href="#"><i class="bi bi-pinterest"></i></a>
-            </div>
-          </div>
-        </div>
-        
-        <div class="col-lg-6 animate__animated animate__fadeInRight">
-          <div class="contact-map p-4 p-lg-5 h-100">
-            <h4 class="text-gold mb-4">Map Location</h4>
-            <div class="ratio ratio-16x9">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.215209132468!2d-73.9878449242394!3d40.74844097138946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9b3117469%3A0xd134e199a405a163!2sEmpire%20State%20Building!5e0!3m2!1sen!2sus!4v1629915426785!5m2!1sen!2sus" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-            </div>
-            
-            <div class="mt-4">
-              <h5 class="text-gold mb-3">Parking Information</h5>
-              <p class="text-white">Valet parking available at the front entrance for $15/hour. Several parking garages within a 2-block radius offer discounted rates for salon clients - ask reception for validation.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
@@ -973,7 +826,7 @@
             <div class="footer-logo mb-3">ELEGANCE SALON</div>
             <p class="text-white">Redefining beauty with luxury services, premium products, and exceptional customer care since 2010.</p>
             <div class="mt-4">
-              <a href="#" class="btn btn-gold">Book Appointment</a>
+              <a href="contactus.php" class="btn btn-gold">Book Appointment</a>
             </div>
           </div>
         </div>
@@ -982,11 +835,11 @@
           <div class="footer-links">
             <h5>Services</h5>
             <ul>
-              <li><a href="#">Hair</a></li>
-              <li><a href="#">Nails</a></li>
-              <li><a href="#">Skin Care</a></li>
-              <li><a href="#">Makeup</a></li>
-              <li><a href="#">Spa</a></li>
+              <li><a href="#services">Hair</a></li>
+              <li><a href="#services">Nails</a></li>
+              <li><a href="#services">Skin Care</a></li>
+              <li><a href="#services">Makeup</a></li>
+              <li><a href="#services">Spa</a></li>
             </ul>
           </div>
         </div>
@@ -995,9 +848,9 @@
           <div class="footer-links">
             <h5>Company</h5>
             <ul>
-              <li><a href="#">About Us</a></li>
-              <li><a href="#">Our Team</a></li>
-              <li><a href="#">Careers</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="about.html">Our Team</a></li>
+              <li><a href="contact.html">Contact</a></li>
               <li><a href="#">Blog</a></li>
               <li><a href="#">Press</a></li>
             </ul>
@@ -1086,5 +939,4 @@
     window.addEventListener('load', animateOnScroll);
   </script>
 </body>
-
 </html>

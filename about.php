@@ -4,8 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Contact Elegance Salon - Premium beauty services with luxury experience">
-  <title>Contact Us | Elegance Salon</title>
+  <meta name="description" content="About Elegance Salon - Premium beauty services with luxury experience">
+  <title>About Us | Elegance Salon</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
@@ -117,29 +117,60 @@
       margin: 15px auto;
     }
 
-    .contact-form {
+    .feature-box {
       background: var(--dark-gray);
-      padding: 40px;
-      border-radius: 15px;
       border: 1px solid var(--gold);
+      border-radius: 15px;
+      padding: 30px;
+      text-align: center;
+      transition: all 0.4s ease;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
     }
 
-    .form-control {
-      background: rgba(255, 255, 255, 0.1);
-      border: none;
-      color: #fff;
-      padding: 12px 15px;
+    .feature-box:before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        to bottom right,
+        rgba(255, 215, 0, 0.1),
+        rgba(255, 215, 0, 0)
+      );
+      transform: rotate(30deg);
+      transition: all 0.6s ease;
+      opacity: 0;
+    }
+
+    .feature-box:hover:before {
+      opacity: 1;
+      transform: rotate(0deg);
+    }
+
+    .feature-box:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(255, 215, 0, 0.2);
+      border-color: var(--gold);
+    }
+
+    .feature-box i {
+      font-size: 2.5rem;
+      color: var(--gold);
       margin-bottom: 20px;
     }
 
-    .form-control:focus {
-      background: rgba(255, 255, 255, 0.2);
-      color: #fff;
-      box-shadow: 0 0 0 0.25rem rgba(255, 215, 0, 0.25);
+    .feature-box h5 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 15px;
     }
 
-    textarea.form-control {
-      min-height: 150px;
+    .feature-box p {
+      color: var(--light-gray);
     }
 
     .footer {
@@ -284,10 +315,6 @@
       .section-title {
         font-size: 1.8rem;
       }
-      
-      .contact-form {
-        padding: 25px;
-      }
     }
   </style>
 </head>
@@ -316,94 +343,122 @@
       </div>
     </div>
   </nav>
-  <!-- Contact Section -->
-  <section id="contact" class="bg-black" style="padding-top: 150px;">
+
+  <!-- About Section -->
+  <section id="about" class="bg-dark" style="padding-top: 150px;">
     <div class="container">
-      <h2 class="section-title animate__animated animate__fadeInUp">Contact Us</h2>
-      <p class="text-center text-white mb-5 animate__animated animate__fadeInUp">We'd love to hear from you. Reach out for appointments or inquiries.</p>
-      
-      <div class="row g-5">
-        <div class="col-lg-6 animate__animated animate__fadeInLeft">
-          <div class="contact-info p-4 p-lg-5 h-100">
-            <h4 class="text-gold mb-4">Contact Information</h4>
-            
-            <div class="d-flex mb-4">
-              <i class="bi bi-geo-alt-fill text-gold me-3 fs-4"></i>
-              <div>
-                <h5 class="text-white">Location</h5>
-                <p class="text-white mb-0">123 Beauty Avenue<br>Luxury District<br>New York, NY 10001</p>
-              </div>
+      <h2 class="section-title animate__animated animate__fadeInUp">About Elegance Salon</h2>
+      <div class="row align-items-center">
+        <div class="col-lg-6 mb-5 mb-lg-0 animate__animated animate__fadeInLeft">
+          <img src="assets/images/rec desk.jpg" alt="Elegance Salon Reception" class="img-fluid rounded shadow-lg">
+          <div class="row mt-4">
+            <div class="col-6">
+              <img src="assets/images/serv1.jpg" alt="Salon Service Area" class="img-fluid rounded shadow-lg mb-3">
             </div>
-            
-            <div class="d-flex mb-4">
-              <i class="bi bi-telephone-fill text-gold me-3 fs-4"></i>
-              <div>
-                <h5 class="text-white">Phone</h5>
-                <p class="text-white mb-0">(212) 555-1234</p>
-              </div>
-            </div>
-            
-            <div class="d-flex mb-4">
-              <i class="bi bi-envelope-fill text-gold me-3 fs-4"></i>
-              <div>
-                <h5 class="text-white">Email</h5>
-                <p class="text-white mb-0">info@elegancesalon.com</p>
-              </div>
-            </div>
-            
-            <div class="d-flex mb-4">
-              <i class="bi bi-clock-fill text-gold me-3 fs-4"></i>
-              <div>
-                <h5 class="text-white">Hours</h5>
-                <p class="text-white mb-0">Monday - Friday: 9am - 8pm<br>Saturday: 9am - 6pm<br>Sunday: 10am - 4pm</p>
-              </div>
-            </div>
-            
-            <h5 class="text-gold mt-5 mb-3">Follow Us</h5>
-            <div class="social-icons">
-              <a href="#"><i class="bi bi-facebook"></i></a>
-              <a href="#"><i class="bi bi-instagram"></i></a>
-              <a href="#"><i class="bi bi-tiktok"></i></a>
-              <a href="#"><i class="bi bi-pinterest"></i></a>
+            <div class="col-6">
+              <img src="assets/images/rec1.jpg" alt="Salon Waiting Area" class="img-fluid rounded shadow-lg mb-3">
             </div>
           </div>
         </div>
-        
         <div class="col-lg-6 animate__animated animate__fadeInRight">
-          <div class="contact-form">
-            <h4 class="text-gold mb-4">Send Us a Message</h4>
-            <form>
-              <div class="row">
-                <div class="col-md-6">
-                  <input type="text" class="form-control" placeholder="Your Name" required>
-                </div>
-                <div class="col-md-6">
-                  <input type="email" class="form-control" placeholder="Your Email" required>
+          <div class="ps-lg-5">
+            <h3 class="text-gold mb-4">Redefining Beauty Standards Since 2010</h3>
+            <p class="text-white mb-4">Elegance Salon stands as a beacon of luxury and innovation in the beauty industry. Founded by master stylist Elena Rodriguez, our salon has grown from a single-chair boutique to a 2,500 sq ft luxury beauty destination, earning numerous industry awards along the way.</p>
+            
+            <div class="d-flex mb-4">
+              <div class="me-4">
+                <h4 class="text-gold">15+</h4>
+                <p class="text-white">Professional Stylists</p>
+              </div>
+              <div class="me-4">
+                <h4 class="text-gold">10K+</h4>
+                <p class="text-white">Happy Clients</p>
+              </div>
+              <div>
+                <h4 class="text-gold">50+</h4>
+                <p class="text-white">Industry Awards</p>
+              </div>
+            </div>
+            
+            <p class="text-white mb-4">What sets us apart is our holistic approach to beauty. We don't just change your look; we enhance your natural features while considering your lifestyle, personality, and preferences. Our team regularly attends international training sessions in Paris, Milan, and New York to stay at the forefront of beauty trends.</p>
+            
+            <h5 class="text-gold mb-3">Our Philosophy</h5>
+            <p class="text-white mb-4">We believe true beauty comes from confidence. Our mission is to provide services that make you look incredible while creating an experience that makes you feel valued and pampered. Every product we use is carefully selected for quality, sustainability, and performance.</p>
+            
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <div class="d-flex">
+                  <i class="bi bi-check-circle-fill text-gold me-2"></i>
+                  <span class="text-white">Cruelty-free products</span>
                 </div>
               </div>
-              <input type="text" class="form-control" placeholder="Subject">
-              <textarea class="form-control" placeholder="Your Message" required></textarea>
-              <button type="submit" class="btn btn-gold w-100">Send Message</button>
-            </form>
+              <div class="col-md-6 mb-3">
+                <div class="d-flex">
+                  <i class="bi bi-check-circle-fill text-gold me-2"></i>
+                  <span class="text-white">Sanitation certified</span>
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <div class="d-flex">
+                  <i class="bi bi-check-circle-fill text-gold me-2"></i>
+                  <span class="text-white">Eco-conscious practices</span>
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <div class="d-flex">
+                  <i class="bi bi-check-circle-fill text-gold me-2"></i>
+                  <span class="text-white">Accessibility features</span>
+                </div>
+              </div>
+            </div>
+            
+            <a href="contact.html" class="btn btn-gold mt-3">Visit Us Today</a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Map Section -->
-  <section class="bg-dark">
+  <!-- Team Section -->
+  <section id="team" class="bg-black">
     <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <h4 class="text-gold mb-4 text-center">Find Us On Map</h4>
-          <div class="ratio ratio-16x9">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.215209132468!2d-73.9878449242394!3d40.74844097138946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9b3117469%3A0xd134e199a405a163!2sEmpire%20State%20Building!5e0!3m2!1sen!2sus!4v1629915426785!5m2!1sen!2sus" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+      <h2 class="section-title animate__animated animate__fadeInUp">Meet Our Team</h2>
+      <p class="text-center text-white mb-5 animate__animated animate__fadeInUp">Our talented professionals are dedicated to making you look and feel your best.</p>
+      
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3 animate__animated animate__fadeInUp animate-delay-1">
+          <div class="feature-box">
+            <img src="assets/images/stylist1.jpg" alt="Elena Rodriguez" class="img-fluid rounded-circle mb-3" width="150">
+            <h5>Elena Rodriguez</h5>
+            <p class="text-gold">Founder & Master Stylist</p>
+            <p class="text-white">With 20 years of experience, Elena specializes in precision cutting and color correction.</p>
           </div>
-          
-          <div class="mt-4 text-center">
-            <h5 class="text-gold mb-3">Parking Information</h5>
-            <p class="text-white">Valet parking available at the front entrance for $15/hour. Several parking garages within a 2-block radius offer discounted rates for salon clients - ask reception for validation.</p>
+        </div>
+        
+        <div class="col-md-6 col-lg-3 animate__animated animate__fadeInUp animate-delay-2">
+          <div class="feature-box">
+            <img src="assets/images/stylist2.jpg" alt="Marcus Johnson" class="img-fluid rounded-circle mb-3" width="150">
+            <h5>Marcus Johnson</h5>
+            <p class="text-gold">Creative Director</p>
+            <p class="text-white">Marcus is our balayage expert and extension specialist with training from Paris.</p>
+          </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-3 animate__animated animate__fadeInUp animate-delay-3">
+          <div class="feature-box">
+            <img src="assets/images/stylist3.jpg" alt="Sophia Chen" class="img-fluid rounded-circle mb-3" width="150">
+            <h5>Sophia Chen</h5>
+            <p class="text-gold">Nail Artist</p>
+            <p class="text-white">Sophia creates stunning nail art designs and specializes in medical pedicures.</p>
+          </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-3 animate__animated animate__fadeInUp animate-delay-1">
+          <div class="feature-box">
+            <img src="assets/images/stylist4.jpg" alt="David Kim" class="img-fluid rounded-circle mb-3" width="150">
+            <h5>David Kim</h5>
+            <p class="text-gold">Makeup Artist</p>
+            <p class="text-white">David is our bridal makeup specialist with airbrush certification from Milan.</p>
           </div>
         </div>
       </div>
