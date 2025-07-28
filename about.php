@@ -332,8 +332,8 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="about.php">About</a></li>
+          <li class="nav-item"><a class="nav-link active" href="homepage.php">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="aboutus.php">About</a></li>
           <li class="nav-item"><a class="nav-link" href="contactus.php">Contact</a></li>
           <li class="nav-item"><a class="nav-link" href="feedback.php">Feedback</a></li>
           <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
@@ -428,7 +428,7 @@
       <div class="row g-4">
         <div class="col-md-6 col-lg-3 animate__animated animate__fadeInUp animate-delay-1">
           <div class="feature-box">
-            <img src="assets/images/stylist1.jpg" alt="Elena Rodriguez" class="img-fluid rounded-circle mb-3" width="150">
+            <img src="assets/images/p1.jpg" alt="Elena Rodriguez" class="img-fluid rounded-circle mb-3" width="150">
             <h5>Elena Rodriguez</h5>
             <p class="text-gold">Founder & Master Stylist</p>
             <p class="text-white">With 20 years of experience, Elena specializes in precision cutting and color correction.</p>
@@ -437,7 +437,7 @@
         
         <div class="col-md-6 col-lg-3 animate__animated animate__fadeInUp animate-delay-2">
           <div class="feature-box">
-            <img src="assets/images/stylist2.jpg" alt="Marcus Johnson" class="img-fluid rounded-circle mb-3" width="150">
+            <img src="assets/images/p3.jpg" alt="Marcus Johnson" class="img-fluid rounded-circle mb-3" width="150">
             <h5>Marcus Johnson</h5>
             <p class="text-gold">Creative Director</p>
             <p class="text-white">Marcus is our balayage expert and extension specialist with training from Paris.</p>
@@ -446,7 +446,7 @@
         
         <div class="col-md-6 col-lg-3 animate__animated animate__fadeInUp animate-delay-3">
           <div class="feature-box">
-            <img src="assets/images/stylist3.jpg" alt="Sophia Chen" class="img-fluid rounded-circle mb-3" width="150">
+            <img src="assets/images/nail.webp" alt="Sophia Chen" class="img-fluid rounded-circle mb-3" width="150">
             <h5>Sophia Chen</h5>
             <p class="text-gold">Nail Artist</p>
             <p class="text-white">Sophia creates stunning nail art designs and specializes in medical pedicures.</p>
@@ -455,7 +455,7 @@
         
         <div class="col-md-6 col-lg-3 animate__animated animate__fadeInUp animate-delay-1">
           <div class="feature-box">
-            <img src="assets/images/stylist4.jpg" alt="David Kim" class="img-fluid rounded-circle mb-3" width="150">
+            <img src="assets/images/p4.jpg" alt="David Kim" class="img-fluid rounded-circle mb-3" width="150">
             <h5>David Kim</h5>
             <p class="text-gold">Makeup Artist</p>
             <p class="text-white">David is our bridal makeup specialist with airbrush certification from Milan.</p>

@@ -2,10 +2,7 @@
 require_once '../includes/db.php';
 require_once '../includes/auth.php';
 
-if ($_SESSION['role_id'] != 1) {
-    header("Location: ../login.php");
-    exit;
-}
+include '../includes/adminheader.php';
 
 // Fetch data
 $client_result = mysqli_query($conn, "SELECT COUNT(*) AS total_clients FROM Clients");
@@ -130,13 +127,13 @@ $appt_data = mysqli_fetch_assoc($appt_result);
     <!-- Navigation -->
     <div class="row">
       <div class="col-md-3 col-6">
-        <a href="receptionist/clients.php" class="nav-card">
+        <a href="clients.php" class="nav-card">
           <div class="nav-icon"><i class="fas fa-users"></i></div>
           <div class="nav-title">Clients</div>
         </a>
       </div>
       <div class="col-md-3 col-6">
-        <a href="receptionist/appointments.php" class="nav-card">
+        <a href="appointments.php" class="nav-card">
           <div class="nav-icon"><i class="fas fa-calendar-alt"></i></div>
           <div class="nav-title">Appointments</div>
         </a>
@@ -179,7 +176,8 @@ $appt_data = mysqli_fetch_assoc($appt_result);
       </div>
     </div>
   </div>
-
+  <?php include '../includes/adminfooter.php'; ?>
+</div> <!-- end container -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

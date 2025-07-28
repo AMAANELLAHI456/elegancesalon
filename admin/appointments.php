@@ -2,54 +2,33 @@
 require_once '../includes/db.php';
 require_once '../includes/auth.php';
 include '../includes/adminheader.php';
-if ($_SESSION['role_id'] != 1) {
-    header("Location: ../login.php");
-    exit;
+
+// Handle delete action
+if (isset($_GET['delete_id'])) {
+    $delete_id = mysqli_real_escape_string($conn, $_GET['delete_id']);
+    $delete_sql = "DELETE FROM appointments WHERE appointment_id = '$delete_id'";
+    
+    if (mysqli_query($conn, $delete_sql)) {
+        $_SESSION['message'] = "Appointment deleted successfully";
+        header("Location: appointments.php");
+        exit;
+    } else {
+        $_SESSION['error'] = "Error deleting appointment: " . mysqli_error($conn);
+    }
 }
 
-// Handle Add Service
-if (isset($_POST['add_service'])) {
-    $name = mysqli_real_escape_string($conn, $_POST['service_name']);
-    $desc = mysqli_real_escape_string($conn, $_POST['description']);
-    $price = floatval($_POST['price']);
+// Fetch all appointments with related data
+$sql = "SELECT a.appointment_id, a.appointment_time, a.status, a.appointment_cost,
+               c.name AS client_name, c.phone AS client_phone,
+               s.service_name, s.price AS service_price,
+               u.name AS stylist_name
+        FROM appointments a
+        JOIN clients c ON a.client_id = c.client_id
+        JOIN services s ON a.service_id = s.service_id
+        LEFT JOIN users u ON a.stylist_id = u.user_id
+        ORDER BY a.appointment_time DESC";
 
-    $insert = "INSERT INTO Services (service_name, description, price) VALUES ('$name', '$desc', $price)";
-    mysqli_query($conn, $insert);
-    header("Location: services.php");
-    exit;
-}
-
-// Handle Delete Service
-if (isset($_GET['delete'])) {
-    $id = intval($_GET['delete']);
-    mysqli_query($conn, "DELETE FROM Services WHERE service_id = $id");
-    header("Location: services.php");
-    exit;
-}
-
-// Handle Edit
-$edit_mode = false;
-if (isset($_GET['edit'])) {
-    $edit_mode = true;
-    $id = intval($_GET['edit']);
-    $edit_data = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM Services WHERE service_id = $id"));
-}
-
-// Handle Update Service
-if (isset($_POST['update_service'])) {
-    $id = intval($_POST['service_id']);
-    $name = mysqli_real_escape_string($conn, $_POST['service_name']);
-    $desc = mysqli_real_escape_string($conn, $_POST['description']);
-    $price = floatval($_POST['price']);
-
-    $update = "UPDATE Services SET service_name='$name', description='$desc', price=$price WHERE service_id=$id";
-    mysqli_query($conn, $update);
-    header("Location: services.php");
-    exit;
-}
-
-// Fetch all services
-$services = mysqli_query($conn, "SELECT * FROM Services ORDER BY service_id DESC");
+$result = mysqli_query($conn, $sql);
 ?>
 
 <!DOCTYPE html>
@@ -57,7 +36,7 @@ $services = mysqli_query($conn, "SELECT * FROM Services ORDER BY service_id DESC
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services Management | Elegance Salon</title>
+    <title>Appointments Management | Elegance Salon</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
@@ -66,9 +45,9 @@ $services = mysqli_query($conn, "SELECT * FROM Services ORDER BY service_id DESC
         :root {
             --gold: #D4AF37;
             --dark-gold: #B7950B;
-            --black: #000000;  /* Changed to pure black */
-            --darker-gray: #121212; /* Darker shade for contrast */
-            --dark-gray: #1E1E1E;  /* Slightly lighter than black */
+            --black: #000000;
+            --darker-gray: #121212;
+            --dark-gray: #1E1E1E;
             --light-gray: #E0E0E0;
         }
         
@@ -197,10 +176,29 @@ $services = mysqli_query($conn, "SELECT * FROM Services ORDER BY service_id DESC
             margin-right: 0;
         }
         
-        /* Ensure header and footer also use black background */
         header, footer {
             background: var(--black) !important;
             border-color: rgba(212, 175, 55, 0.2) !important;
+        }
+        
+        .badge {
+            padding: 0.5em 0.75em;
+            font-weight: 500;
+        }
+        
+        .badge.completed {
+            background-color: rgba(40, 167, 69, 0.2);
+            color: #28a745;
+        }
+        
+        .badge.pending {
+            background-color: rgba(255, 193, 7, 0.2);
+            color: #ffc107;
+        }
+        
+        .badge.cancelled {
+            background-color: rgba(220, 53, 69, 0.2);
+            color: #dc3545;
         }
     </style>
 </head>
@@ -209,74 +207,74 @@ $services = mysqli_query($conn, "SELECT * FROM Services ORDER BY service_id DESC
     
     <div class="container py-4" style="background: var(--black);">
         <div class="services-header">
-            <h1 class="services-title"><i class="fas fa-spa me-2"></i>Services Management</h1>
+            <h1 class="services-title"><i class="fas fa-calendar-alt me-2"></i>Appointments Management</h1>
         </div>
 
-        <!-- Service Form -->
-        <div class="form-container" style="background: var(--black);">
-            <form method="POST" action="">
-                <input type="hidden" name="service_id" value="<?= $edit_mode ? $edit_data['service_id'] : '' ?>">
-                <div class="row g-3">
-                    <div class="col-md-4">
-                        <label class="form-label">Service Name</label>
-                        <input type="text" name="service_name" class="form-control" required 
-                            value="<?= $edit_mode ? htmlspecialchars($edit_data['service_name']) : '' ?>">
-                    </div>
-                    <div class="col-md-4">
-                        <label class="form-label">Description</label>
-                        <input type="text" name="description" class="form-control"
-                            value="<?= $edit_mode ? htmlspecialchars($edit_data['description']) : '' ?>">
-                    </div>
-                    <div class="col-md-2">
-                        <label class="form-label">Price</label>
-                        <div class="input-group">
-                            <span class="input-group-text rupee-symbol">Rs.</span>
-                            <input type="number" step="0.01" name="price" class="form-control" required
-                                value="<?= $edit_mode ? htmlspecialchars($edit_data['price']) : '' ?>">
-                        </div>
-                    </div>
-                    <div class="col-md-2 d-flex align-items-end">
-                        <?php if ($edit_mode): ?>
-                            <button class="btn btn-gold w-100" type="submit" name="update_service">
-                                <i class="fas fa-save me-2"></i>Update
-                            </button>
-                        <?php else: ?>
-                            <button class="btn btn-gold w-100" type="submit" name="add_service">
-                                <i class="fas fa-plus me-2"></i>Add
-                            </button>
-                        <?php endif; ?>
-                    </div>
-                </div>
-            </form>
+        <!-- Add New Appointment Button -->
+        <div class="d-flex justify-content-end mb-4">
+            <a href="add_appointment.php" class="btn btn-gold">
+                <i class="fas fa-plus me-2"></i>Add New Appointment
+            </a>
         </div>
 
-        <!-- Services Table -->
+        <!-- Display messages -->
+        <?php if (isset($_SESSION['message'])): ?>
+            <div class="alert alert-success alert-dismissible fade show mb-4">
+                <i class="fas fa-check-circle me-2"></i><?= $_SESSION['message']; ?>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                <?php unset($_SESSION['message']); ?>
+            </div>
+        <?php endif; ?>
+
+        <?php if (isset($_SESSION['error'])): ?>
+            <div class="alert alert-danger alert-dismissible fade show mb-4">
+                <i class="fas fa-exclamation-circle me-2"></i><?= $_SESSION['error']; ?>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                <?php unset($_SESSION['error']); ?>
+            </div>
+        <?php endif; ?>
+
+        <!-- Appointments Table -->
         <div class="table-container" style="background: var(--black);">
             <table class="table table-dark table-hover">
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Service Name</th>
-                        <th>Description</th>
-                        <th>Price</th>
+                        <th>Client</th>
+                        <th>Service</th>
+                        <th>Stylist</th>
+                        <th>Time</th>
+                        <th>Status</th>
+                        <th>Cost</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php 
-                    mysqli_data_seek($services, 0); // Reset pointer
-                    while ($row = mysqli_fetch_assoc($services)) : ?>
+                    <?php while($row = mysqli_fetch_assoc($result)): ?>
                         <tr style="background: var(--black);">
-                            <td><?= $row['service_id'] ?></td>
-                            <td><?= htmlspecialchars($row['service_name']) ?></td>
-                            <td><?= htmlspecialchars($row['description']) ?></td>
-                            <td><span class="rupee-symbol">Rs.</span> <?= number_format($row['price'], 2) ?></td>
+                            <td><?= htmlspecialchars($row['appointment_id']) ?></td>
+                            <td>
+                                <strong><?= htmlspecialchars($row['client_name']) ?></strong><br>
+                                <small class="text-muted"><?= htmlspecialchars($row['client_phone']) ?></small>
+                            </td>
+                            <td>
+                                <?= htmlspecialchars($row['service_name']) ?><br>
+                                <small class="text-muted">Rs. <?= number_format($row['service_price'], 2) ?></small>
+                            </td>
+                            <td><?= htmlspecialchars($row['stylist_name'] ?? 'Not assigned') ?></td>
+                            <td><?= date('M j, Y g:i A', strtotime($row['appointment_time'])) ?></td>
+                            <td>
+                                <span class="badge <?= $row['status'] ?>">
+                                    <?= ucfirst($row['status']) ?>
+                                </span>
+                            </td>
+                            <td><span class="rupee-symbol">Rs.</span> <?= number_format($row['appointment_cost'], 2) ?></td>
                             <td class="action-buttons">
-                                <a href="?edit=<?= $row['service_id'] ?>" class="btn btn-sm btn-warning">
+                                <a href="edit_appointment.php?id=<?= $row['appointment_id'] ?>" class="btn btn-sm btn-warning">
                                     <i class="fas fa-edit me-1"></i>Edit
                                 </a>
-                                <a href="?delete=<?= $row['service_id'] ?>" class="btn btn-sm btn-danger" 
-                                   onclick="return confirm('Are you sure you want to delete this service?')">
+                                <a href="appointments.php?delete_id=<?= $row['appointment_id'] ?>" class="btn btn-sm btn-danger" 
+                                   onclick="return confirm('Are you sure you want to delete this appointment?')">
                                     <i class="fas fa-trash-alt me-1"></i>Delete
                                 </a>
                             </td>
@@ -289,5 +287,6 @@ $services = mysqli_query($conn, "SELECT * FROM Services ORDER BY service_id DESC
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <?php include '../includes/footer.php'; ?>
 </body>
 </html>

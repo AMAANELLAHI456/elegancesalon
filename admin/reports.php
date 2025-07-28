@@ -1,7 +1,7 @@
 <?php
 require_once '../includes/db.php';
 require_once '../includes/auth.php';
-
+include '../includes/adminheader.php';
 if ($_SESSION['role_id'] != 1) {
     header("Location: ../login.php");
     exit;

@@ -2,7 +2,7 @@
 // admin/inventory.php
 require_once '../includes/auth.php';
 require_once '../includes/db.php';
-include '../includes/header.php';
+include '../includes/adminheader.php';
 
 // Handle item deletion
 if (isset($_GET['delete'])) {

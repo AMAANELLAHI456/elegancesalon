@@ -181,6 +181,8 @@
       height: 100%;
       position: relative;
       overflow: hidden;
+      display: flex;
+      flex-direction: column;
     }
 
     .feature-box:before {
@@ -389,6 +391,38 @@
       animation-delay: 0.6s;
     }
 
+    /* Service Button Styles */
+    .service-btn {
+      background-color: var(--gold);
+      color: var(--black);
+      border: none;
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.3s;
+      display: inline-block;
+      margin-top: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      text-decoration: none;
+      font-size: 0.9rem;
+      width: 100%;
+      text-align: center;
+    }
+
+    .service-btn:hover {
+      background-color: var(--dark-gold);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 12px rgba(255, 215, 0, 0.3);
+      color: var(--black);
+    }
+    
+    .feature-box ul {
+      min-height: 160px;
+      margin-bottom: 15px;
+    }
+
     /* Responsive adjustments */
     @media (max-width: 992px) {
       .carousel-caption {
@@ -406,6 +440,10 @@
 
       section {
         padding: 80px 0;
+      }
+      
+      .feature-box ul {
+        min-height: 140px;
       }
     }
 
@@ -428,6 +466,10 @@
         font-size: 1.5rem;
         margin-bottom: 10px;
       }
+      
+      .feature-box ul {
+        min-height: auto;
+      }
     }
 
     @media (max-width: 576px) {
@@ -449,13 +491,18 @@
       .section-title {
         font-size: 1.8rem;
       }
+      
+      .service-btn {
+        padding: 8px 15px;
+        font-size: 0.8rem;
+      }
     }
   </style>
 </head>
 
 <body>
   <!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
     <div class="container">
       <a class="navbar-brand" href="#">
         <img src="assets/images/salonlogo.jpg" alt="Elegance Salon Logo">
@@ -467,7 +514,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="about.php">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="aboutus.php">About</a></li>
           <li class="nav-item"><a class="nav-link" href="contactus.php">Contact</a></li>
           <li class="nav-item"><a class="nav-link" href="feedback.php">Feedback</a></li>
           <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
@@ -548,6 +595,7 @@
               <li>Extensions & weaves</li>
               <li>Bridal hair design</li>
             </ul>
+            <a href="request_appointment.php" class="service-btn">Book Appointment</a>
           </div>
         </div>
         
@@ -562,6 +610,7 @@
               <li>Nail art & design</li>
               <li>Medical pedicures</li>
             </ul>
+            <a href="request_appointment.php" class="service-btn">Book Appointment</a>
           </div>
         </div>
         
@@ -576,6 +625,7 @@
               <li>Waxing & threading</li>
               <li>Eyelash extensions</li>
             </ul>
+            <a href="request_appointment.php" class="service-btn">Book Appointment</a>
           </div>
         </div>
         
@@ -590,6 +640,7 @@
               <li>Airbrush makeup</li>
               <li>Makeup lessons</li>
             </ul>
+            <a href="request_appointment.php" class="service-btn">Book Appointment</a>
           </div>
         </div>
         
@@ -604,6 +655,7 @@
               <li>Detox wraps</li>
               <li>Couples packages</li>
             </ul>
+            <a href="request_appointment.php" class="service-btn">Book Appointment</a>
           </div>
         </div>
         
@@ -618,6 +670,7 @@
               <li>Executive grooming</li>
               <li>Membership programs</li>
             </ul>
+            <a href="request_appointment.php" class="service-btn">Book Appointment</a>
           </div>
         </div>
       </div>

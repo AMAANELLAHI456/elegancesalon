@@ -373,7 +373,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link" href="homepage.php">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="about.php">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="contactus.php">Contact</a></li>
           <li class="nav-item"><a class="nav-link active" href="feedback.php">Feedback</a></li>
           <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
             <a class="btn btn-gold" href="contactus.php">Book Now</a>
