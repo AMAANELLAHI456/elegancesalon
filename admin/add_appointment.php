@@ -2,7 +2,7 @@
 require_once '../includes/db.php';
 require_once '../includes/auth.php';
 
-
+include '../includes/adminheader.php';
 
 // Initialize variables
 $errors = [];
