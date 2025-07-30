@@ -216,8 +216,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </style>
 </head>
 <body style="background: var(--black);">
-    <?php include '../includes/header.php'; ?>
-    
+    <?php include '../includes/receptionheader.php'; ?>
+
     <div class="container py-4" style="background: var(--black);">
         <div class="services-header">
             <h1 class="services-title"><i class="fas fa-calendar-edit me-2"></i>Edit Appointment #<?= $appointment_id ?></h1>
@@ -311,6 +311,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <?php include '../includes/footer.php'; ?>
+    <?php include '../includes/receptionfooter.php'; ?>
 </body>
 </html>

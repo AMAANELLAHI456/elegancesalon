@@ -1,7 +1,7 @@
 <?php
 require_once '../includes/db.php';
 require_once '../includes/auth.php';
-
+include '../includes/receptionheader.php';
 // Only allow receptionists
 if ($_SESSION['role_id'] != 2) {
     header("Location: ../login.php");
@@ -125,7 +125,7 @@ $result = mysqli_query($conn, $query);
     </style>
 </head>
 <body style="background: var(--black);">
-    <?php include '../includes/header.php'; ?>
+    
     
     <div class="container py-4">
         <div class="d-flex justify-content-between align-items-center header-section">
@@ -172,6 +172,6 @@ $result = mysqli_query($conn, $query);
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <?php include '../includes/footer.php'; ?>
+    <?php include '../includes/receptionfooter.php'; ?>
 </body>
 </html>

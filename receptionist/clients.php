@@ -1,7 +1,7 @@
 <?php
 require_once '../includes/db.php';
 require_once '../includes/auth.php';
-
+include '../includes/receptionheader.php';
 // Only allow receptionists
 if ($_SESSION['role_id'] != 2) {
     header("Location: ../login.php");
@@ -136,7 +136,7 @@ $clients_result = mysqli_query($conn, "SELECT * FROM clients");
     </style>
 </head>
 <body style="background: var(--black);">
-    <?php include '../includes/header.php'; ?>
+    
     
     <div class="container py-4" style="background: var(--black);">
         <div class="d-flex justify-content-between align-items-center services-header">
@@ -169,7 +169,7 @@ $clients_result = mysqli_query($conn, "SELECT * FROM clients");
                             <a href="edit.clients.php?id=<?= $row['client_id'] ?>" class="btn btn-sm btn-warning">
                                 <i class="fas fa-edit me-1"></i>Edit
                             </a>
-                            <a href="delete_clients.php?id=<?= $row['client_id'] ?>" class="btn btn-sm btn-danger" 
+                            <a href="delete_clients.php<?= $row['client_id'] ?>" class="btn btn-sm btn-danger" 
                                onclick="return confirm('Are you sure you want to delete this client?')">
                                 <i class="fas fa-trash-alt me-1"></i>Delete
                             </a>
@@ -183,6 +183,6 @@ $clients_result = mysqli_query($conn, "SELECT * FROM clients");
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <?php include '../includes/footer.php'; ?>
+    <?php include '../includes/receptionfooter.php'; ?>
 </body>
 </html>

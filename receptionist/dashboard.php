@@ -1,7 +1,7 @@
 <?php
 require_once '../includes/db.php';
 require_once '../includes/auth.php';
-
+include '../includes/receptionheader.php';
 // Only allow receptionists
 if ($_SESSION['role_id'] != 2) {
     header("Location: ../login.php");
@@ -155,7 +155,7 @@ $pending_payments_data = mysqli_fetch_assoc($pending_payments_result);
     </style>
 </head>
 <body style="background-color: var(--black);">
-    <?php include '../includes/header.php'; ?>
+    
     
     <div class="dashboard-container">
         <!-- Logo and Header -->
@@ -232,7 +232,7 @@ $pending_payments_data = mysqli_fetch_assoc($pending_payments_result);
         </div>
     </div>
 
-    <?php include '../includes/footer.php'; ?>
+    <?php include '../includes/receptionfooter.php'; ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>

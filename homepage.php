@@ -183,6 +183,7 @@
       overflow: hidden;
       display: flex;
       flex-direction: column;
+      justify-content: space-between;
     }
 
     .feature-box:before {
@@ -227,6 +228,18 @@
 
     .feature-box p {
       color: var(--light-gray);
+    }
+
+    .feature-box ul {
+      min-height: 160px;
+      margin-bottom: 15px;
+      list-style: none;
+      padding-left: 0;
+      text-align: left;
+    }
+
+    .feature-box ul li {
+      padding: 5px 0;
     }
 
     .gallery-item {
@@ -402,12 +415,13 @@
       text-transform: uppercase;
       letter-spacing: 1px;
       transition: all 0.3s;
-      display: inline-block;
-      margin-top: 15px;
+      display: block;
+      margin: 15px auto 0;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
       text-decoration: none;
       font-size: 0.9rem;
-      width: 100%;
+      width: 60%;
+      max-width: 200px;
       text-align: center;
     }
 
@@ -416,11 +430,6 @@
       transform: translateY(-3px);
       box-shadow: 0 6px 12px rgba(255, 215, 0, 0.3);
       color: var(--black);
-    }
-    
-    .feature-box ul {
-      min-height: 160px;
-      margin-bottom: 15px;
     }
 
     /* Responsive adjustments */
@@ -495,6 +504,8 @@
       .service-btn {
         padding: 8px 15px;
         font-size: 0.8rem;
+        width: 70%;
+        max-width: 150px;
       }
     }
   </style>
@@ -513,8 +524,8 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="aboutus.php">About</a></li>
+          <li class="nav-item"><a class="nav-link active" href="homepage.php">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.php">About</a></li>
           <li class="nav-item"><a class="nav-link" href="contactus.php">Contact</a></li>
           <li class="nav-item"><a class="nav-link" href="feedback.php">Feedback</a></li>
           <li class="nav-item ms-lg-3 mt-2 mt-lg-0">

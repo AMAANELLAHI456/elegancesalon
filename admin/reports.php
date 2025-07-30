@@ -147,7 +147,7 @@ $top_services_result = mysqli_query($conn, $top_services_query);
     </style>
 </head>
 <body style="background: var(--black);">
-    <?php include '../includes/header.php'; ?>
+    
     
     <div class="container py-4" style="background: var(--black);">
         <div class="dashboard-header">
@@ -207,5 +207,6 @@ $top_services_result = mysqli_query($conn, $top_services_query);
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+     <?php include '../includes/adminfooter.php'; ?>
 </body>
 </html>

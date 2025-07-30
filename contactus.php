@@ -305,7 +305,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="homepage.php">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="about.php">About</a></li>
           <li class="nav-item"><a class="nav-link" href="contactus.php">Contact</a></li>
           <li class="nav-item"><a class="nav-link" href="feedback.php">Feedback</a></li>

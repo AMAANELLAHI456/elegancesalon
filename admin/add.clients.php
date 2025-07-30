@@ -1,6 +1,7 @@
 <?php
 require_once '../includes/db.php';
 require_once '../includes/auth.php';
+include '../includes/adminheader.php';
 
 
 
@@ -179,6 +180,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <?php include '../includes/footer.php'; ?>
+    <?php include '../includes/adminfooter.php'; ?>
 </body>
 </html>

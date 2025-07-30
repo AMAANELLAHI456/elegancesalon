@@ -1,7 +1,7 @@
 <?php
 require_once '../includes/db.php';
 require_once '../includes/auth.php';
-
+include '../includes/stylistheader.php';
 if ($_SESSION['role_id'] != 3) {
     header("Location: ../login.php");
     exit;
@@ -244,14 +244,14 @@ $result = mysqli_stmt_get_result($stmt);
           <i class="far fa-calendar-times"></i>
         </div>
         <h4 class="text-warning">No Scheduled Shifts</h4>
-        <p class="text-muted">You don't have any shifts scheduled for this week.</p>
+        <p class="">You don't have any shifts scheduled for this week.</p>
         <button class="btn btn-gold mt-2">
           <i class="fas fa-plus me-1"></i> Request Shifts
         </button>
       </div>
     <?php endif; ?>
   </div>
-
+  <?php include '../includes/stylistfooter.php'; ?>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

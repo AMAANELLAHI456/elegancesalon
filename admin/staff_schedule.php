@@ -202,7 +202,7 @@ $stylists = mysqli_query($conn, "SELECT user_id, name FROM users WHERE role_id =
     </style>
 </head>
 <body style="background: var(--black);">
-    <?php include '../includes/header.php'; ?>
+
     
     <div class="container py-4" style="background: var(--black);">
         <div class="schedule-header">
@@ -305,5 +305,6 @@ $stylists = mysqli_query($conn, "SELECT user_id, name FROM users WHERE role_id =
             });
         </script>
     <?php endif; ?>
+     <?php include '../includes/adminfooter.php'; ?>
 </body>
 </html>

@@ -104,7 +104,7 @@ $users_result = mysqli_query($conn, $users_query);
     </style>
 </head>
 <body style="background: var(--black);">
-    <?php include '../includes/header.php'; ?>
+    
     
     <div class="container py-4" style="background: var(--black);">
         <div class="users-header">

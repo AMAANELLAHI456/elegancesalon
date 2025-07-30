@@ -1,7 +1,7 @@
 <?php
 require_once '../includes/db.php';
 require_once '../includes/auth.php';
-
+include '../includes/stylistheader.php';
 if ($_SESSION['role_id'] != 3) {
     header("Location: ../login.php");
     exit;
@@ -167,7 +167,7 @@ $result = mysqli_stmt_get_result($stmt);
       <?php endif; ?>
     </div>
   </div>
-
+  <?php include '../includes/stylistfooter.php'; ?>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

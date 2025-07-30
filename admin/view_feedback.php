@@ -105,7 +105,7 @@ $result = mysqli_query($conn, $sql);
     </style>
 </head>
 <body style="background: var(--black);">
-    <?php include '../includes/header.php'; ?>
+    
     
     <div class="container py-4" style="background: var(--black);">
         <div class="feedback-header">

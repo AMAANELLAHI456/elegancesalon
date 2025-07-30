@@ -132,8 +132,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </style>
 </head>
 <body style="background: var(--black);">
-    <?php include '../includes/header.php'; ?>
-    
+    <?php include '../includes/receptionheader.php'; ?>
+
     <div class="container py-5">
         <div class="form-container">
             <h2 class="form-title"><i class="fas fa-credit-card me-2"></i>Add New Payment</h2>
@@ -192,6 +192,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <?php include '../includes/footer.php'; ?>
+    <?php include '../includes/receptionfooter.php'; ?>
 </body>
 </html>
