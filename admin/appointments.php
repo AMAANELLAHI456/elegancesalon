@@ -10,7 +10,8 @@ if (isset($_GET['delete_id'])) {
     
     if (mysqli_query($conn, $delete_sql)) {
         $_SESSION['message'] = "Appointment deleted successfully";
-        header("Location: appointments.php");
+        // header("Location: appointments.php");
+        echo "<script>window.location.href = 'appointments.php';</script>";
         exit;
     } else {
         $_SESSION['error'] = "Error deleting appointment: " . mysqli_error($conn);

@@ -136,7 +136,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </style>
 </head>
 <body style="background: var(--black);">
-    <?php include '../includes/header.php'; ?>
+<?php include '../includes/adminheader.php'; ?>
     
     <div class="container py-4" style="background: var(--black);">
         <div class="services-header">

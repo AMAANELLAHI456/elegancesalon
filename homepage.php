@@ -186,7 +186,7 @@
       justify-content: space-between;
     }
 
-    .feature-box:before {
+    /* .feature-box:before {
       content: '';
       position: absolute;
       top: -50%;
@@ -212,7 +212,7 @@
       transform: translateY(-10px);
       box-shadow: 0 15px 30px rgba(255, 215, 0, 0.2);
       border-color: var(--gold);
-    }
+    } */
 
     .feature-box i {
       font-size: 2.5rem;
@@ -589,104 +589,113 @@
   </div>
 
   <!-- Services Section -->
-  <section id="services" class="bg-black">
-    <div class="container">
-      <h2 class="section-title animate__animated animate__fadeInUp">Our Premium Services</h2>
-      <p class="text-center text-white mb-5 animate__animated animate__fadeInUp">We offer a comprehensive range of beauty services performed by specialists in each field.</p>
-      
-      <div class="row g-4">
-        <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp animate-delay-1">
-          <div class="feature-box">
-            <img src="assets/images/haircut.jpg" alt="Hair Services" class="img-fluid rounded mb-3">
-            <h5>Hair Services</h5>
-            <ul class="text-start ps-3">
-              <li>Precision haircuts & styling</li>
-              <li>Balayage & creative coloring</li>
-              <li>Keratin treatments</li>
-              <li>Extensions & weaves</li>
-              <li>Bridal hair design</li>
-            </ul>
-            <a href="request_appointment.php" class="service-btn">Book Appointment</a>
-          </div>
+ <section id="services" class="bg-black py-5">
+  <div class="container">
+    <h2 class="section-title text-white text-center mb-4 animate__animated animate__fadeInUp">Our Premium Services</h2>
+    <p class="text-center text-white mb-5 animate__animated animate__fadeInUp">
+      We offer a comprehensive range of beauty services performed by specialists in each field.
+    </p>
+
+    <div class="row g-4">
+      <!-- Hair Services -->
+      <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp animate-delay-1">
+        <div class="feature-box text-white p-3 bg-dark rounded h-100">
+          <img src="assets/images/haircut.jpg" alt="Hair Services" class="img-fluid rounded mb-3">
+          <h5>Hair Services</h5>
+          <ul class="text-start ps-3">
+            <li>Precision haircuts & styling</li>
+            <li>Balayage & creative coloring</li>
+            <li>Keratin treatments</li>
+            <li>Extensions & weaves</li>
+            <li>Bridal hair design</li>
+          </ul>
+          <a href="request_appointment.php" class="btn btn-outline-light mt-2">Book Appointment</a>
         </div>
-        
-        <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp animate-delay-2">
-          <div class="feature-box">
-            <img src="assets/images/nails.jpg" alt="Nail Services" class="img-fluid rounded mb-3">
-            <h5>Nail Studio</h5>
-            <ul class="text-start ps-3">
-              <li>Luxury manicures</li>
-              <li>Spa pedicures</li>
-              <li>Gel & acrylic extensions</li>
-              <li>Nail art & design</li>
-              <li>Medical pedicures</li>
-            </ul>
-            <a href="request_appointment.php" class="service-btn">Book Appointment</a>
-          </div>
+      </div>
+
+      <!-- Nail Studio -->
+      <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp animate-delay-2">
+        <div class="feature-box text-white p-3 bg-dark rounded h-100">
+          <img src="assets/images/nails.jpg" alt="Nail Services" class="img-fluid rounded mb-3">
+          <h5>Nail Studio</h5>
+          <ul class="text-start ps-3">
+            <li>Luxury manicures</li>
+            <li>Spa pedicures</li>
+            <li>Gel & acrylic extensions</li>
+            <li>Nail art & design</li>
+            <li>Medical pedicures</li>
+          </ul>
+          <a href="request_appointment.php" class="btn btn-outline-light mt-2">Book Appointment</a>
         </div>
-        
-        <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp animate-delay-3">
-          <div class="feature-box">
-            <img src="assets/images/services.jpg" alt="Skin Care" class="img-fluid rounded mb-3">
-            <h5>Skin Care</h5>
-            <ul class="text-start ps-3">
-              <li>Facials & peels</li>
-              <li>Microdermabrasion</li>
-              <li>LED light therapy</li>
-              <li>Waxing & threading</li>
-              <li>Eyelash extensions</li>
-            </ul>
-            <a href="request_appointment.php" class="service-btn">Book Appointment</a>
-          </div>
+      </div>
+
+      <!-- Skin Care -->
+      <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp animate-delay-3">
+        <div class="feature-box text-white p-3 bg-dark rounded h-100">
+          <img src="assets/images/services.jpg" alt="Skin Care" class="img-fluid rounded mb-3">
+          <h5>Skin Care</h5>
+          <ul class="text-start ps-3">
+            <li>Facials & peels</li>
+            <li>Microdermabrasion</li>
+            <li>LED light therapy</li>
+            <li>Waxing & threading</li>
+            <li>Eyelash extensions</li>
+          </ul>
+          <a href="request_appointment.php" class="btn btn-outline-light mt-2">Book Appointment</a>
         </div>
-        
-        <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp animate-delay-1">
-          <div class="feature-box">
-            <img src="assets/images/makeover.webp" alt="Makeup Services" class="img-fluid rounded mb-3">
-            <h5>Makeup Artistry</h5>
-            <ul class="text-start ps-3">
-              <li>Bridal makeup</li>
-              <li>Editorial makeup</li>
-              <li>Special occasion</li>
-              <li>Airbrush makeup</li>
-              <li>Makeup lessons</li>
-            </ul>
-            <a href="request_appointment.php" class="service-btn">Book Appointment</a>
-          </div>
+      </div>
+
+      <!-- Makeup Artistry -->
+      <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp animate-delay-1">
+        <div class="feature-box text-white p-3 bg-dark rounded h-100">
+          <img src="assets/images/makeover.webp" alt="Makeup Services" class="img-fluid rounded mb-3">
+          <h5>Makeup Artistry</h5>
+          <ul class="text-start ps-3">
+            <li>Bridal makeup</li>
+            <li>Editorial makeup</li>
+            <li>Special occasion</li>
+            <li>Airbrush makeup</li>
+            <li>Makeup lessons</li>
+          </ul>
+          <a href="request_appointment.php" class="btn btn-outline-light mt-2">Book Appointment</a>
         </div>
-        
-        <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp animate-delay-2">
-          <div class="feature-box">
-            <img src="assets/images/client services.png" alt="Spa Services" class="img-fluid rounded mb-3">
-            <h5>Spa Services</h5>
-            <ul class="text-start ps-3">
-              <li>Massage therapy</li>
-              <li>Body treatments</li>
-              <li>Aromatherapy</li>
-              <li>Detox wraps</li>
-              <li>Couples packages</li>
-            </ul>
-            <a href="request_appointment.php" class="service-btn">Book Appointment</a>
-          </div>
+      </div>
+
+      <!-- Spa Services -->
+      <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp animate-delay-2">
+        <div class="feature-box text-white p-3 bg-dark rounded h-100">
+          <img src="assets/images/client services.png" alt="Spa Services" class="img-fluid rounded mb-3">
+          <h5>Spa Services</h5>
+          <ul class="text-start ps-3">
+            <li>Massage therapy</li>
+            <li>Body treatments</li>
+            <li>Aromatherapy</li>
+            <li>Detox wraps</li>
+            <li>Couples packages</li>
+          </ul>
+          <a href="request_appointment.php" class="btn btn-outline-light mt-2">Book Appointment</a>
         </div>
-        
-        <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp animate-delay-3">
-          <div class="feature-box">
-            <img src="assets/images/rec1.jpg" alt="Special Packages" class="img-fluid rounded mb-3">
-            <h5>Special Packages</h5>
-            <ul class="text-start ps-3">
-              <li>Complete makeovers</li>
-              <li>Bridal packages</li>
-              <li>Teen beauty days</li>
-              <li>Executive grooming</li>
-              <li>Membership programs</li>
-            </ul>
-            <a href="request_appointment.php" class="service-btn">Book Appointment</a>
-          </div>
+      </div>
+
+      <!-- Special Packages -->
+      <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp animate-delay-3">
+        <div class="feature-box text-white p-3 bg-dark rounded h-100">
+          <img src="assets/images/rec1.jpg" alt="Special Packages" class="img-fluid rounded mb-3">
+          <h5>Special Packages</h5>
+          <ul class="text-start ps-3">
+            <li>Complete makeovers</li>
+            <li>Bridal packages</li>
+            <li>Teen beauty days</li>
+            <li>Executive grooming</li>
+            <li>Membership programs</li>
+          </ul>
+          <a href="request_appointment.php" class="btn btn-outline-light mt-2">Book Appointment</a>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
 
   <!-- Features -->
   <section id="features" class="bg-dark">
