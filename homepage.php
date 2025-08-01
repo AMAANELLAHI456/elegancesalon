@@ -550,7 +550,7 @@
         <div class="carousel-caption d-none d-md-block animate__animated animate__fadeInLeft">
           <h5>Experience Luxury Redefined</h5>
           <p>Step into our elegant space where beauty meets sophistication. Our award-winning salon design creates the perfect ambiance for your transformation.</p>
-          <a href="about.html" class="btn btn-gold">Discover More</a>
+          <a href="about.php" class="btn btn-gold">Discover More</a>
         </div>
       </div>
       <div class="carousel-item">
@@ -853,7 +853,7 @@
             <div class="carousel-inner">
               <div class="carousel-item active">
                 <div class="testimonial-box p-4 p-lg-5 text-center">
-                  <img src="assets/images/OIP.jpeg" alt="Client" class="rounded-circle mb-4" width="100">
+                  <img src="assets/images/bride1.jpg" alt="Client" class="rounded-circle mb-4" width="100">
                   <p class="text-white mb-4">"Elegance Salon transformed my look for my wedding day. The team listened to my vision and executed it perfectly. I felt like the best version of myself!"</p>
                   <h5 class="text-gold mb-1">Sarah Johnson</h5>
                   <p class="text-muted">Bride</p>
@@ -921,11 +921,9 @@
           <div class="footer-links">
             <h5>Company</h5>
             <ul>
-              <li><a href="about.html">About Us</a></li>
-              <li><a href="about.html">Our Team</a></li>
-              <li><a href="contact.html">Contact</a></li>
-              <li><a href="#">Blog</a></li>
-              <li><a href="#">Press</a></li>
+              <li><a href="about.php">About Us</a></li>
+              <li><a href="about.php">Our Team</a></li>
+              <li><a href="contactus.php">Contact</a></li>
             </ul>
           </div>
         </div>

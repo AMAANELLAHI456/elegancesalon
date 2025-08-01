@@ -496,11 +496,9 @@
           <div class="footer-links">
             <h5>Company</h5>
             <ul>
-              <li><a href="about.html">About Us</a></li>
-              <li><a href="about.html#team">Our Team</a></li>
-              <li><a href="contact.html">Contact</a></li>
-              <li><a href="#">Blog</a></li>
-              <li><a href="#">Press</a></li>
+              <li><a href="about.php">About Us</a></li>
+              <li><a href="about.php">Our Team</a></li>
+              <li><a href="contactus.php">Contact</a></li>
             </ul>
           </div>
         </div>
