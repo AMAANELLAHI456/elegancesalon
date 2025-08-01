@@ -396,6 +396,7 @@
         <li><a href="appointments.php"><i class="fas fa-calendar-alt"></i> Appointments</a></li>
         <li><a href="clients.php"><i class="fas fa-users"></i> Clients</a></li>
         <li><a href="payments.php"><i class="fas fa-credit-card"></i> Payments</a></li>
+        <li><a href="manage_requests.php"><i class="fas fa-credit-card"></i> Manage Requests</a></li>
       </ul>
       
       <div class="user-info">

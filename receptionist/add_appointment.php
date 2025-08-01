@@ -2,11 +2,7 @@
 require_once '../includes/db.php';
 require_once '../includes/auth.php';
 
-// Only allow receptionists
-if ($_SESSION['role_id'] != 2) {
-    header("Location: ../login.php");
-    exit;
-}
+include '../includes/receptionheader.php';
 
 // Initialize variables
 $errors = [];
@@ -45,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if (mysqli_query($conn, $sql)) {
             $_SESSION['message'] = "Appointment added successfully!";
-            header("Location: appointments.php");
+            echo "<script>window.location.href = 'appointments.php';</script>";
             exit;
         } else {
             $errors[] = "Error adding appointment: " . mysqli_error($conn);
@@ -170,8 +166,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </style>
 </head>
 <body style="background: var(--black);">
-    <?php include '../includes/receptionheader.php'; ?>
-
+    
+    
     <div class="container py-4" style="background: var(--black);">
         <div class="services-header">
             <h1 class="services-title"><i class="fas fa-calendar-plus me-2"></i>Add New Appointment</h1>

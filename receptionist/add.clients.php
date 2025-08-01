@@ -1,11 +1,9 @@
 <?php
 require_once '../includes/db.php';
 require_once '../includes/auth.php';
+include '../includes/receptionheader.php';
 
-if ($_SESSION['role_id'] != 2) {
-    header("Location: ../login.php");
-    exit;
-}
+
 
 // Handle form submission
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -19,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         mysqli_stmt_execute($stmt);
 
         $_SESSION['message'] = "Client added successfully!";
-        header("Location: clients.php");
+        echo "<script>window.location.href = 'clients.php';</script>";
         exit;
     } else {
         $error = "Please fill in all fields.";
@@ -138,8 +136,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </style>
 </head>
 <body style="background: var(--black);">
-    <?php include '../includes/receptionheader.php'; ?>
-
+<?php include '../includes/adminheader.php'; ?>
+    
     <div class="container py-4" style="background: var(--black);">
         <div class="services-header">
             <h1 class="services-title"><i class="fas fa-user-plus me-2"></i>Add New Client</h1>

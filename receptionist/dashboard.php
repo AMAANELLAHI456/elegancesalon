@@ -203,7 +203,7 @@ $pending_payments_data = mysqli_fetch_assoc($pending_payments_result);
 
         <!-- Quick Access Buttons -->
         <div class="row mt-4">
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <a href="appointments.php" class="nav-btn">
                     <div class="nav-icon">
                         <i class="fas fa-calendar-alt"></i>
@@ -212,7 +212,7 @@ $pending_payments_data = mysqli_fetch_assoc($pending_payments_result);
                 </a>
             </div>
             
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <a href="clients.php" class="nav-btn">
                     <div class="nav-icon">
                         <i class="fas fa-user-friends"></i>
@@ -221,12 +221,22 @@ $pending_payments_data = mysqli_fetch_assoc($pending_payments_result);
                 </a>
             </div>
             
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <a href="payments.php" class="nav-btn">
                     <div class="nav-icon">
                         <i class="fas fa-credit-card"></i>
                     </div>
                     <h6 class="nav-title">Manage Payments</h6>
+                </a>
+            </div>
+            
+            <!-- Aligned Manage Requests Button -->
+            <div class="col-md-3">
+                <a href="manage_requests.php" class="nav-btn">
+                    <div class="nav-icon">
+                        <i class="fas fa-clipboard-list"></i>
+                    </div>
+                    <h6 class="nav-title">Manage Requests</h6>
                 </a>
             </div>
         </div>

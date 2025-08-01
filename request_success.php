@@ -337,6 +337,11 @@
                 <div class="alert-content">
                     <h4>Your appointment request has been submitted!</h4>
                     <p>The receptionist will contact you shortly to confirm your booking.</p>
+                    <?php
+                    $client_name = $_GET['client_name'];
+$appointment_time = $_GET['appointment_time'];
+                    $client_phone = $_GET['client_phone'] ?? 'Not provided';
+                    ?>
                     
                     <div class="appointment-details">
                         <div class="detail-item">
@@ -345,7 +350,7 @@
                             </div>
                             <div class="detail-content">
                                 <h5>Client Name</h5>
-                                <p>Sarah Johnson</p>
+                                <p><?php echo $client_name; ?></p>
                             </div>
                         </div>
                         
@@ -355,7 +360,7 @@
                             </div>
                             <div class="detail-content">
                                 <h5>Contact Phone</h5>
-                                <p>(555) 123-4567</p>
+                                <p><?php echo $client_phone; ?></p>
                             </div>
                         </div>
                         
@@ -375,7 +380,7 @@
                             </div>
                             <div class="detail-content">
                                 <h5>Appointment Time</h5>
-                                <p>Friday, June 15, 2024 at 2:30 PM</p>
+                                <p><?php echo $appointment_time; ?></p>
                             </div>
                         </div>
                     </div>
@@ -386,7 +391,7 @@
                 <button class="btn btn-primary">
                     <i class="fas fa-calendar-check"></i> View My Appointments
                 </button>
-                <button class="btn btn-secondary">
+                <button class="btn btn-secondary" href="homepage.php" onclick="window.location.href='homepage.php';">
                     <i class="fas fa-home"></i> Back to Home
                 </button>
             </div>

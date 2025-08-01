@@ -394,7 +394,7 @@
       <ul class="sidebar-menu">
         <li><a href="dashboard.php" class="active"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
         <li><a href="my_appointments.php"><i class="fas fa-calendar-alt"></i> Appointments</a></li>
-        <li><a href="my_schedule.php"><i class="fas fa-users"></i> Clients</a></li>
+        <li><a href="my_schedule.php"><i class="fas fa-users"></i> schedule</a></li>
       </ul>
       
       <div class="user-info">

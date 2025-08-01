@@ -15,7 +15,7 @@ if (isset($_POST['add_service'])) {
 
     $insert = "INSERT INTO Services (service_name, description, price) VALUES ('$name', '$desc', $price)";
     mysqli_query($conn, $insert);
-    header("Location: services.php");
+    echo "<script>window.location.href = 'services.php';</script>";
     exit;
 }
 
@@ -23,7 +23,7 @@ if (isset($_POST['add_service'])) {
 if (isset($_GET['delete'])) {
     $id = intval($_GET['delete']);
     mysqli_query($conn, "DELETE FROM Services WHERE service_id = $id");
-    header("Location: services.php");
+    echo "<script>window.location.href = 'services.php';</script>";
     exit;
 }
 
@@ -44,7 +44,7 @@ if (isset($_POST['update_service'])) {
 
     $update = "UPDATE Services SET service_name='$name', description='$desc', price=$price WHERE service_id=$id";
     mysqli_query($conn, $update);
-    header("Location: services.php");
+    echo "<script>window.location.href = 'services.php';</script>";
     exit;
 }
 

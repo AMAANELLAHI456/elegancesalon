@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if (mysqli_query($conn, $sql)) {
             $_SESSION['message'] = "Appointment added successfully!";
-            header("Location: appointments.php");
+            echo "<script>window.location.href = 'appointments.php';</script>";
             exit;
         } else {
             $errors[] = "Error adding appointment: " . mysqli_error($conn);
@@ -68,6 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             --darker-gray: #121212;
             --dark-gray: #1E1E1E;
             --light-gray: #E0E0E0;
+            --form-bg: #f8f9fa;
         }
         
         body {
@@ -106,20 +107,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             color: var(--gold);
             font-weight: 400;
             margin-bottom: 0.5rem;
+            display: block;
         }
         
         .form-control, .form-select {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: var(--light-gray);
-            padding: 0.5rem 1rem;
+            background: var(--form-bg);
+            border: 1px solid #ced4da;
+            color: #212529;
+            padding: 0.75rem 1rem;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
         }
         
         .form-control:focus, .form-select:focus {
-            background: rgba(255, 255, 255, 0.1);
+            background: #ffffff;
             border-color: var(--gold);
-            color: white;
-            box-shadow: 0 0 0 0.25rem rgba(212, 175, 55, 0.15);
+            box-shadow: 0 0 0 0.25rem rgba(212, 175, 55, 0.25);
+            color: #212529;
         }
         
         .btn-gold {
@@ -128,8 +133,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             color: var(--black);
             font-weight: 500;
             letter-spacing: 0.8px;
-            padding: 0.5rem 1.5rem;
+            padding: 0.75rem 1.75rem;
             transition: all 0.3s ease;
+            border-radius: 6px;
+            font-size: 1rem;
         }
         
         .btn-gold:hover {
@@ -141,6 +148,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             border: 1px solid var(--gold);
             color: var(--gold);
             background: transparent;
+            padding: 0.75rem 1.75rem;
+            border-radius: 6px;
+            font-size: 1rem;
         }
         
         .btn-outline-gold:hover {
@@ -152,6 +162,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             background-color: rgba(220, 53, 69, 0.1);
             border-left: 4px solid #dc3545;
             color: var(--light-gray);
+            border-radius: 6px;
         }
         
         .rupee-symbol {
@@ -159,93 +170,135 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             font-weight: 500;
         }
         
-        header, footer {
-            background: var(--black) !important;
-            border-color: rgba(212, 175, 55, 0.2) !important;
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-title {
+            color: var(--gold);
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .form-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--gold);
+        }
+        
+        .card-style {
+            background: rgba(30, 30, 30, 0.8);
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        @media (max-width: 768px) {
+            .card-style {
+                padding: 1.5rem;
+            }
+            
+            .form-title {
+                font-size: 1.5rem;
+            }
         }
     </style>
 </head>
 <body style="background: var(--black);">
-    
-    
-    <div class="container py-4" style="background: var(--black);">
-        <div class="services-header">
-            <h1 class="services-title"><i class="fas fa-calendar-plus me-2"></i>Add New Appointment</h1>
-        </div>
-
-        <!-- Display errors -->
-        <?php if (!empty($errors)): ?>
-            <div class="alert alert-danger mb-4">
-                <h5 class="alert-heading"><i class="fas fa-exclamation-triangle me-2"></i>Please fix the following errors:</h5>
-                <ul class="mb-0">
-                    <?php foreach ($errors as $error): ?>
-                        <li><?= htmlspecialchars($error) ?></li>
-                    <?php endforeach; ?>
-                </ul>
-            </div>
-        <?php endif; ?>
-
-        <!-- Appointment Form -->
-        <div class="form-container">
-            <form method="POST" action="add_appointment.php">
-                <div class="row g-3">
-                    <!-- Client Selection -->
-                    <div class="col-md-6">
-                        <label class="form-label">Client *</label>
-                        <select class="form-select" name="client_id" required>
-                            <option value="">Select a client</option>
-                            <?php while ($client = mysqli_fetch_assoc($clients)): ?>
-                                <option value="<?= $client['client_id'] ?>" <?= ($client_id == $client['client_id']) ? 'selected' : '' ?>>
-                                    <?= htmlspecialchars($client['name']) ?> (<?= htmlspecialchars($client['phone']) ?>)
-                                </option>
-                            <?php endwhile; ?>
-                        </select>
+    <div class="container py-4">
+        <div class="d-flex justify-content-center">
+            <div class="col-lg-8">
+                <div class="card-style">
+                    <!-- Header with icon -->
+                    <div class="text-center mb-4">
+                        <i class="fas fa-calendar-plus fa-3x mb-3" style="color: var(--gold);"></i>
+                        <h1 class="form-title">Add New Appointment</h1>
                     </div>
 
-                    <!-- Service Selection -->
-                    <div class="col-md-6">
-                        <label class="form-label">Service *</label>
-                        <select class="form-select" name="service_id" required>
-                            <option value="">Select a service</option>
-                            <?php while ($service = mysqli_fetch_assoc($services)): ?>
-                                <option value="<?= $service['service_id'] ?>" <?= ($service_id == $service['service_id']) ? 'selected' : '' ?>>
-                                    <?= htmlspecialchars($service['service_name']) ?> (<span class="rupee-symbol">Rs.</span> <?= number_format($service['price'], 2) ?>)
-                                </option>
-                            <?php endwhile; ?>
-                        </select>
-                    </div>
+                    <!-- Display errors -->
+                    <?php if (!empty($errors)): ?>
+                        <div class="alert alert-danger mb-4">
+                            <h5 class="alert-heading"><i class="fas fa-exclamation-triangle me-2"></i>Please fix the following errors:</h5>
+                            <ul class="mb-0">
+                                <?php foreach ($errors as $error): ?>
+                                    <li><?= htmlspecialchars($error) ?></li>
+                                <?php endforeach; ?>
+                            </ul>
+                        </div>
+                    <?php endif; ?>
 
-                    <!-- Stylist Selection -->
-                    <div class="col-md-6">
-                        <label class="form-label">Stylist</label>
-                        <select class="form-select" name="stylist_id">
-                            <option value="">No stylist assigned</option>
-                            <?php while ($stylist = mysqli_fetch_assoc($stylists)): ?>
-                                <option value="<?= $stylist['user_id'] ?>" <?= ($stylist_id == $stylist['user_id']) ? 'selected' : '' ?>>
-                                    <?= htmlspecialchars($stylist['name']) ?>
-                                </option>
-                            <?php endwhile; ?>
-                        </select>
-                    </div>
+                    <!-- Appointment Form -->
+                    <form method="POST" action="add_appointment.php">
+                        <!-- Client Selection -->
+                        <div class="form-group">
+                            <label class="form-label">Client *</label>
+                            <select class="form-select" name="client_id" required>
+                                <option value="">Select a client</option>
+                                <?php while ($client = mysqli_fetch_assoc($clients)): ?>
+                                    <option value="<?= $client['client_id'] ?>" <?= ($client_id == $client['client_id']) ? 'selected' : '' ?>>
+                                        <?= htmlspecialchars($client['name']) ?> (<?= htmlspecialchars($client['phone']) ?>)
+                                    </option>
+                                <?php endwhile; ?>
+                            </select>
+                        </div>
 
-                    <!-- Appointment Time -->
-                    <div class="col-md-6">
-                        <label class="form-label">Appointment Time *</label>
-                        <input type="datetime-local" class="form-control" name="appointment_time" 
-                               value="<?= htmlspecialchars($appointment_time) ?>" required>
-                    </div>
+                        <!-- Service Selection -->
+                        <div class="form-group">
+                            <label class="form-label">Service *</label>
+                            <select class="form-select" name="service_id" required>
+                                <option value="">Select a service</option>
+                                <?php while ($service = mysqli_fetch_assoc($services)): ?>
+                                    <option value="<?= $service['service_id'] ?>" <?= ($service_id == $service['service_id']) ? 'selected' : '' ?>>
+                                        <?= htmlspecialchars($service['service_name']) ?> (<span class="rupee-symbol">Rs.</span> <?= number_format($service['price'], 2) ?>)
+                                    </option>
+                                <?php endwhile; ?>
+                            </select>
+                        </div>
 
-                    <!-- Buttons -->
-                    <div class="col-12 mt-4">
-                        <button type="submit" class="btn btn-gold me-2">
-                            <i class="fas fa-save me-2"></i>Save Appointment
-                        </button>
-                        <a href="appointments.php" class="btn btn-outline-gold">
-                            <i class="fas fa-times me-2"></i>Cancel
-                        </a>
-                    </div>
+                        <!-- Stylist Selection -->
+                        <div class="form-group">
+                            <label class="form-label">Stylist</label>
+                            <select class="form-select" name="stylist_id">
+                                <option value="">No stylist assigned</option>
+                                <?php while ($stylist = mysqli_fetch_assoc($stylists)): ?>
+                                    <option value="<?= $stylist['user_id'] ?>" <?= ($stylist_id == $stylist['user_id']) ? 'selected' : '' ?>>
+                                        <?= htmlspecialchars($stylist['name']) ?>
+                                    </option>
+                                <?php endwhile; ?>
+                            </select>
+                        </div>
+
+                        <!-- Appointment Time -->
+                        <div class="form-group">
+                            <label class="form-label">Appointment Time *</label>
+                            <input type="datetime-local" class="form-control" name="appointment_time" 
+                                   value="<?= htmlspecialchars($appointment_time) ?>" required>
+                        </div>
+
+                        <!-- Buttons -->
+                        <div class="d-flex justify-content-center mt-5">
+                            <div class="d-grid gap-3 d-md-flex">
+                                <button type="submit" class="btn btn-gold">
+                                    <i class="fas fa-save me-2"></i>Save Appointment
+                                </button>
+                                <a href="appointments.php" class="btn btn-outline-gold">
+                                    <i class="fas fa-times me-2"></i>Cancel
+                                </a>
+                            </div>
+                        </div>
+                    </form>
                 </div>
-            </form>
+            </div>
         </div>
     </div>
 

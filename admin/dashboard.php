@@ -99,31 +99,7 @@ $appt_data = mysqli_fetch_assoc($appt_result);
     <img src="../assets/images/salonlogo.jpg" alt="Elegance Salon" class="logo">
     <h1 class="dashboard-title">Admin Dashboard</h1>
 
-    <!-- Stats -->
-    <div class="row">
-      <div class="col-md-4">
-        <div class="stat-card">
-          <div class="stat-icon"><i class="fas fa-users"></i></div>
-          <div class="stat-value"><?= $client_data['total_clients'] ?></div>
-          <div class="stat-title">Total Clients</div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="stat-card">
-          <div class="stat-icon"><i class="fas fa-calendar-check"></i></div>
-          <div class="stat-value"><?= $appt_data['total_appts'] ?></div>
-          <div class="stat-title">Today's Appointments</div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="stat-card">
-          <div class="stat-icon"><i class="fas fa-spa"></i></div>
-          <div class="stat-value"><?= $service_data['total_services'] ?></div>
-          <div class="stat-title">Total Services</div>
-        </div>
-      </div>
-    </div>
-
+    
     <!-- Navigation -->
     <div class="row">
       <div class="col-md-3 col-6">

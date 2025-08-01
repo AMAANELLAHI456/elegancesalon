@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         mysqli_stmt_execute($stmt);
 
         $_SESSION['message'] = "Client added successfully!";
-        header("Location: clients.php");
+        echo "<script>window.location.href = 'clients.php';</script>";
         exit;
     } else {
         $error = "Please fill in all fields.";

@@ -2,10 +2,7 @@
 require_once '../includes/db.php';
 require_once '../includes/auth.php';
 include '../includes/stylistheader.php';
-if ($_SESSION['role_id'] != 3) {
-    header("Location: ../login.php");
-    exit;
-}
+
 
 $stylist_id = $_SESSION['user_id'];
 

@@ -2,11 +2,7 @@
 require_once '../includes/db.php';
 require_once '../includes/auth.php';
 
-// Only allow receptionists
-if ($_SESSION['role_id'] != 2) {
-    header("Location: ../login.php");
-    exit;
-}
+
 
 // Handle delete action
 if (isset($_GET['delete_id'])) {

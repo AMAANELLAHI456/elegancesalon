@@ -2,11 +2,6 @@
 require_once '../includes/db.php';
 require_once '../includes/auth.php';
 
-// Only allow receptionists
-if ($_SESSION['role_id'] != 2) {
-    header("Location: ../login.php");
-    exit;
-}
 
 // Initialize variables
 $errors = [];
@@ -216,7 +211,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </style>
 </head>
 <body style="background: var(--black);">
-    <?php include '../includes/receptionheader.php'; ?>
+<?php include '../includes/receptionheader.php'; ?>
 
     <div class="container py-4" style="background: var(--black);">
         <div class="services-header">

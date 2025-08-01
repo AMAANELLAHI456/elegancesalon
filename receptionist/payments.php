@@ -4,7 +4,7 @@ require_once '../includes/auth.php';
 include '../includes/receptionheader.php';
 // Only allow receptionists
 if ($_SESSION['role_id'] != 2) {
-    header("Location: ../login.php");
+     echo "<script>window.location.href = '../login.php';</script>";
     exit;
 }
 
